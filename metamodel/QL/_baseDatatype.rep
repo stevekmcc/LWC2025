@@ -1,0 +1,17 @@
+_baseDatatype()
+
+if type = 'BooleanQuestion' or type = 'BooleanValue' or type = 'And' or type = 'Or' or type = 'Not' or type = 'Equal' or type = 'NotEqual' or type = 'LessThan' or type = 'GreaterThan' or type = 'LessOrEqual' or type = 'GreaterOrEqual' then
+	'Boolean'
+endif
+
+if type = 'NumberQuestion' or type = 'NumberValue' or type = 'Plus' or type = 'Minus' or type = 'Division' or type = 'Multiplication' then
+	'Number'
+endif
+
+if type = 'StringQuestion' or type = 'StringValue' then
+	'String'
+endif
+
+if type = 'DateQuestion' or type = 'DateValue' then
+	'Date'
+endif

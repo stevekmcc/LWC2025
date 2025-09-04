@@ -1,0 +1,14 @@
+_checkAssignments(@questionId)
+
+foreach .(*Question); where :Identifier = @questionId
+{
+	if ~StorePart; then
+		$readOnly = 'true'
+	endif
+}
+
+foreach .QuestionnaireExtension
+{
+	do decompositions { _checkAssignments(@questionId) }
+}
+

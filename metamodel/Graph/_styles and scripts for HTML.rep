@@ -1,0 +1,69 @@
+report '_styles and scripts for HTML'
+
+'
+<style type="text/css">
+
+.Item li {
+	background-color: #FFFFFF;
+	border: 2px solid #999999;
+	cursor: pointer;
+	float: left;
+	font-size: 11px;
+	list-style: none;
+	margin: 0px 2px;
+	padding: 1px 10px;
+	position: relative;
+	white-space: nowrap;
+}
+
+.Item li a { 
+	text-decoration: none; 
+}
+
+.ItemBody {
+	margin-top: 20px;
+	padding: 20px 10px;
+	border: 2px solid #999999;
+}
+
+table.content {
+	border-collapse: collapse;
+}
+
+table.content th, table.content td {
+	padding: 2px;
+	border: 2px solid #b0b0b0;
+	vertical-align: top; 
+	text-align: left;
+}
+
+td.doc {
+	white-space: pre-wrap;
+}
+
+img {
+	border: 0;
+}
+
+</style>
+
+<script type="text/javascript">
+window.onhashchange = function() {       
+	hashRE = /^#(\d+_\d+)(?:_(Properties|Relationships|Subgraphs|Dictionary)Table)?$/;
+	hashMatch = location.hash.match(hashRE);
+	if (hashMatch !== null) {
+		show(hashMatch[1]);
+		if (hashMatch[2] !== undefined) {
+			toggleItem(hashMatch[1], hashMatch[2]);
+		}
+	} else {
+		show("' oid '");
+		toggleItem("' oid '", "Properties");
+	}
+}
+
+</script>
+
+'
+
+endreport

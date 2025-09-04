@@ -1,0 +1,19 @@
+_evaluateAssociativeOperator(@operator)
+
+/* This default operator handling expects
+   there to be only two values to compare */
+
+do ~OperatorPart
+{
+	@mySide = _mySide()
+	do ~().()
+	{
+		if @mySide = 'left' then
+			local 'leftTerm' write subreport '_evaluate' type run close
+		else
+			local 'rightTerm' write subreport '_evaluate' type run close
+		endif
+	}
+}
+
+'(' @leftTerm ' ' @operator ' ' @rightTerm ')'

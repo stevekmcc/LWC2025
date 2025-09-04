@@ -1,0 +1,12 @@
+_pageBreakOverlapper(@pbLeft, @pbRight, @pbTop, @pbBottom)
+
+@overlapId = ''
+
+foreach .(*Question)
+{
+	if @pbLeft < right num and @pbRight > left num and @pbTop < bottom num and @pbBottom > top num then
+		@overlapId = :Identifier
+	endif
+}
+
+@overlapId

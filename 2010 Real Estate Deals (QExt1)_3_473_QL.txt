@@ -1,0 +1,88 @@
+Graph_QL_sysadmin_3535261946
+2010 Real Estate Deals (QExt1)
+3_473
+QL
+Graph: 2010 Real Estate Deals (QExt1) <QL> 3_473
+	Name: 2010 Real Estate Deals (QExt1)
+	Description: 
+Object: areYouAnIdiot <BooleanQuestion> 3_480
+	Identifier: areYouAnIdiot
+	Label: Are you an idiot?
+	Optional?: T
+Object: didYouPartyHard <BooleanQuestion> 3_1059
+	Identifier: didYouPartyHard
+	Label: Did you party hard with the residue money?
+	Optional?: T
+Object: renovationsDone <BooleanQuestion> 3_1069
+	Identifier: renovationsDone
+	Label: Was the house renovated while you owned it?
+	Optional?: T
+Object: < <ComparisonOperator> 3_1287
+	Operator: <
+Object: < <ComparisonOperator> 3_1353
+	Operator: <
+Object: > <ComparisonOperator> 3_1367
+	Operator: >
+Object: sellingDate <DateQuestion> 3_628
+	Identifier: sellingDate
+	Label: Date the house was sold:
+	Optional?: T
+Object: 30/06/2010 <DateValue> 3_1292
+	Value: 30/06/2010
+Object: Minus <Minus> 3_1230
+Object: sellingPrice <NumberQuestion> 3_362
+	Identifier: sellingPrice
+	Label: Price the house was sold for:
+	Type: Currency
+	Optional?: T
+Object: privateDebt <NumberQuestion> 3_380
+	Identifier: privateDebt
+	Label: Private debts for the sold house:
+	Type: Currency
+	Optional?: T
+Object: valueResidue <NumberQuestion> 3_398
+	Identifier: valueResidue
+	Label: Value residue:
+	Type: Currency
+	Optional?: T
+Object: 0 <NumberValue> 3_1381
+	Value: 0
+Relationship: Assign <Assign> 3_1242
+  Role: StorePart <StorePart>  Object: <NumberQuestion> 3_398
+  Role: ValuePart <ValuePart>  Object: <Minus> 3_1230
+Relationship: TRUE <If> 3_1315
+	Condition: TRUE
+  Role: ConditionPart <ConditionPart>  Object: <ComparisonOperator> 3_1287
+  Role: Then <Then>  Object: <BooleanQuestion> 3_1069
+Relationship: TRUE <If> 3_1404
+	Condition: TRUE
+  Role: ConditionPart <ConditionPart>  Object: <ComparisonOperator> 3_1367
+  Role: Then <Then>  Object: <BooleanQuestion> 3_1059
+Relationship: TRUE <If> 3_1415
+	Condition: TRUE
+  Role: ConditionPart <ConditionPart>  Object: <ComparisonOperator> 3_1353
+  Role: Then <Then>  Object: <BooleanQuestion> 3_480
+Relationship: Term <Term> 3_1269
+  Role: OperatorPart <OperatorPart>  Object: <Minus> 3_1230
+  Role: ValuePart <ValuePart>  Object: <NumberQuestion> 3_380
+Relationship: Term <Term> 3_1278
+  Role: OperatorPart <OperatorPart>  Object: <Minus> 3_1230
+  Role: ValuePart <ValuePart>  Object: <NumberQuestion> 3_362
+Relationship: Term <Term> 3_1306
+  Role: OperatorPart <OperatorPart>  Object: <ComparisonOperator> 3_1287
+  Role: ValuePart <ValuePart>  Object: <DateValue> 3_1292
+Relationship: Term <Term> 3_1358
+  Role: OperatorPart <OperatorPart>  Object: <ComparisonOperator> 3_1353
+  Role: ValuePart <ValuePart>  Object: <NumberQuestion> 3_398
+Relationship: Term <Term> 3_1372
+  Role: OperatorPart <OperatorPart>  Object: <ComparisonOperator> 3_1367
+  Role: ValuePart <ValuePart>  Object: <NumberQuestion> 3_398
+Relationship: Term <Term> 3_1386
+  Role: OperatorPart <OperatorPart>  Object: <ComparisonOperator> 3_1367
+  Role: ValuePart <ValuePart>  Object: <NumberValue> 3_1381
+Relationship: Term <Term> 3_1395
+  Role: OperatorPart <OperatorPart>  Object: <ComparisonOperator> 3_1353
+  Role: ValuePart <ValuePart>  Object: <NumberValue> 3_1381
+Relationship: Term <Term> 3_1612
+  Role: OperatorPart <OperatorPart>  Object: <ComparisonOperator> 3_1287
+  Role: ValuePart <ValuePart>  Object: <DateQuestion> 3_628

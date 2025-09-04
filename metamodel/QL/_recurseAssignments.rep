@@ -1,0 +1,20 @@
+_recurseAssignments()
+
+foreach >Assign
+{
+	do ~StorePart.()
+	{
+		@varName = :Identifier%var
+	}
+	'	' @varName ' = '
+	do ~ValuePart.()
+	{
+		subreport '_evaluate' type run
+	}
+	';'
+}
+
+foreach .QuestionnaireExtension; orderby x num, y num
+{
+	do decompositions { _recurseAssignments() }
+}

@@ -1,0 +1,8 @@
+_evaluateNot()
+
+'(!'
+do ~OperatorPart~().()
+{
+	subreport '_evaluate' type run
+}
+')'

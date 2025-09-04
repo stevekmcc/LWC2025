@@ -1,0 +1,83 @@
+Graph_QLS_sysadmin_3535261946
+Layout 1 - Layout for 2010 Real Estate Deals
+3_756
+QLS
+Graph: Layout 1 - Layout for 2010 Real Estate Deals <QLS> 3_756
+	Name: Layout 1
+	Questionnaire: 2010 Real Estate Deals
+	Graph: 2010 Real Estate Deals <QL> 3_621
+		Name: 2010 Real Estate Deals
+		Description: Please answer the following questions regarding your recent real estate deals:
+	Header style: Maroon header
+	Object: Maroon header <Style> 3_1813
+		Name: Maroon header
+		Color: 
+		Background color: maroon
+		Font: 
+		Font size: 
+		Font style: 
+	Description style: Text in italic
+	Object: Text in italic <Style> 3_1827
+		Name: Text in italic
+		Color: 
+		Background color: 
+		Font: 
+		Font size: 
+		Font style: italic
+	Section header style: 
+	Global question style: My global style #1
+	Object: My global style #1 <StyleWithWidgets> 3_1787
+		Name: My global style #1
+		Color: 
+		Background color: #E9DDDD
+		Font: 
+		Font size: 
+		Font style: 
+		Widgets: Radiobuttons for boolean
+		Object: Radiobuttons for boolean <WidgetSet> 3_1841
+			Name: Radiobuttons for boolean
+			Boolean widget: Radiobutton
+			String widget: Input field
+			Number widget: Input field
+			Date widget: Input field
+Object: hasSoldHouse <BooleanQuestion> 3_320
+	Identifier: hasSoldHouse
+	Label: Did you sell a house
+in 2010?
+	Optional?: F
+Object: hasBoughtHouse <BooleanQuestion> 3_334
+	Identifier: hasBoughtHouse
+	Label: Did you buy a house in 2010?
+	Optional?: F
+Object: areYouAnIdiot <BooleanQuestion> 3_480
+	Identifier: areYouAnIdiot
+	Label: Are you an idiot?
+	Optional?: T
+Object: didYouPartyHard <BooleanQuestion> 3_1059
+	Identifier: didYouPartyHard
+	Label: Did you party hard with the residue money?
+	Optional?: T
+Object: renovationPrice <NumberQuestion> 3_1078
+	Identifier: renovationPrice
+	Label: How much did you spent on renovations?
+	Type: Currency
+	Optional?: T
+Object: PageBreak <PageBreak> 3_1508
+Object: Real estate sold in 2010 <SectionHeader> 3_1485
+	Name: Real estate sold in 2010
+Object: Real estate purchased in 2010 <SectionHeader> 3_1513
+	Name: Real estate purchased in 2010
+Object: Style_3_1887 <StyleWithWidgets> 3_1887
+	Name: 
+	Color: white
+	Background color: red
+	Font: 
+	Font size: 
+	Font style: 
+	Widgets: 
+Relationship: SectionStart <SectionStart> 3_1553
+  Role: QuestionPart <QuestionPart>  Object: <BooleanQuestion> 3_334
+  Role: SectionStarPart <SectionStarPart>  Object: <SectionHeader> 3_1485
+Relationship: SectionStart <SectionStart> 3_1562
+  Role: QuestionPart <QuestionPart>  Object: <BooleanQuestion> 3_320
+  Role: SectionStarPart <SectionStarPart>  Object: <SectionHeader> 3_1513

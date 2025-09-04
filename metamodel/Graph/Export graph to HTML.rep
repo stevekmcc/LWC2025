@@ -1,0 +1,7 @@
+Report 'Export graph to HTML'
+/*	Creates HTML documentation for the single graph */
+$single_graph='true'
+subreport '_translators' run
+_htmlFile(subreport '_default directory' run)
+external '"' subreport; '_default directory' run subreport '_id and oid' run '.html"' execute
+endreport

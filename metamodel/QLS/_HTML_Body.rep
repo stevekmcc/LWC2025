@@ -1,0 +1,137 @@
+_HTML_Body()
+
+'<body>
+<script>
+
+'
+
+_extraWidgetDefs()
+
+$sectionStarts = ''
+
+foreach .SectionHeader
+{
+	do >SectionStart.(*Question)
+	{
+		'sectionHeaders["' :Identifier%var '"] = new SectionHeader("' :Name;1 '");' newline
+		variable 'sectionStarts' append ' ' oid ' ' close
+	}
+}
+
+'
+function setStyles() {
+'
+
+do :Header style;
+{
+	@varString = '	headerStyle'
+	_styleDef(@varString)
+}
+
+do :Description style;
+{
+	@varString = '	descriptionStyle'
+	_styleDef(@varString)
+}
+
+do :Section header style;
+{
+	@varString = '	sectionHeaderStyle'
+	_styleDef(@varString)
+}
+
+@hasGlobalStyle = 'false'
+$globalStyleId = ''
+
+do :Global question style;;
+{
+	local 'varString' write '	styles["' id%var '"]' close
+	_styleDef(@varString)
+	@hasGlobalStyle = 'true'
+	$globalStyleId =  id%var
+}
+
+foreach .StyleWithWidgets
+{
+	local 'varString' write '	styles["' id%var '"]' close
+	_styleDef(@varString)
+}
+
+$questions = ''
+
+foreach .(*Question)
+{
+	@hasStyleContainer = 'false'
+	
+	do containers
+	{
+		if type = 'StyleWithWidgets' then
+			@hasStyleContainer = 'true'
+		endif
+	}
+	
+	if @hasStyleContainer = 'true' then
+
+		'	var styleChain = new Array();' newline
+
+		@styleCount = '0'
+		
+		do containers
+		{
+			'	styleChain[' @styleCount++ '] = "' id '";' newline
+		}
+		
+		if @hasGlobalStyle = 'true' then
+			'	styleChain[' @styleCount++ '] = "' $globalStyleId '";' newline	
+		endif
+		
+		'	questions["' :Identifier%var '"].setStyleChain(styleChain);' newline
+		
+		variable 'questions' append ' ' :Identifier%var ' ' close		
+	endif
+}
+
+if @hasGlobalStyle = 'true' then
+	do :Questionnaire
+	{
+		_recurseQuestions('_addGlobalStyles')
+	}
+endif
+
+'}
+
+'
+
+$pageBreaks = ''
+
+foreach .PageBreak
+{
+	@overlapId = _pageBreakOverlapper(left, right, top, bottom)
+	
+	if @overlapId <> '' then
+		variable 'pageBreaks' append ' ' @overlapId%var ' ' close
+	endif
+}
+
+'function createPages() {
+	setStyles();
+	pages[0] = new Page("Page0", new Array());
+'
+
+$questions = ''
+$pageCount = '0'
+$contentCount = '0'
+
+do :Questionnaire
+{
+	_recurseQuestions('_pageContent')
+}
+
+'}
+
+createPages();
+propagateChanges();
+
+</script>
+</body>
+'

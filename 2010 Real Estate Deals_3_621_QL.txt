@@ -1,0 +1,87 @@
+Graph_QL_sysadmin_3535261946
+2010 Real Estate Deals
+3_621
+QL
+Graph: 2010 Real Estate Deals <QL> 3_621
+	Name: 2010 Real Estate Deals
+	Description: Please answer the following questions regarding your recent real estate deals:
+Object: hasSoldHouse <BooleanQuestion> 3_320
+	Identifier: hasSoldHouse
+	Label: Did you sell a house
+in 2010?
+	Optional?: F
+Object: hasBoughtHouse <BooleanQuestion> 3_334
+	Identifier: hasBoughtHouse
+	Label: Did you buy a house in 2010?
+	Optional?: F
+Object: hasMaintLoan <BooleanQuestion> 3_348
+	Identifier: hasMaintLoan
+	Label: Did you enter a loan for maintenance/reconstruction?
+	Optional?: T
+Object: areYouAnIdiot <BooleanQuestion> 3_480
+	Identifier: areYouAnIdiot
+	Label: Are you an idiot?
+	Optional?: T
+Object: didYouPartyHard <BooleanQuestion> 3_1059
+	Identifier: didYouPartyHard
+	Label: Did you party hard with the residue money?
+	Optional?: T
+Object: renovationsDone <BooleanQuestion> 3_1069
+	Identifier: renovationsDone
+	Label: Was the house renovated while you owned it?
+	Optional?: T
+Object: sellingDate <DateQuestion> 3_628
+	Identifier: sellingDate
+	Label: Date the house was sold:
+	Optional?: T
+Object: sellingPrice <NumberQuestion> 3_362
+	Identifier: sellingPrice
+	Label: Price the house was sold for:
+	Type: Currency
+	Optional?: T
+Object: privateDebt <NumberQuestion> 3_380
+	Identifier: privateDebt
+	Label: Private debts for the sold house:
+	Type: Currency
+	Optional?: T
+Object: valueResidue <NumberQuestion> 3_398
+	Identifier: valueResidue
+	Label: Value residue:
+	Type: Currency
+	Optional?: T
+Object: renovationPrice <NumberQuestion> 3_1078
+	Identifier: renovationPrice
+	Label: How much did you spent on renovations?
+	Type: Currency
+	Optional?: T
+Object: mainDebt <NumberQuestion> 3_1137
+	Identifier: mainDebt
+	Label: Amount of loan entered for maintenance/reconstruction:
+	Type: Currency
+	Optional?: T
+Object: QuestionGroup_3_1186 <QuestionGroup> 3_1186
+	Name: 
+Object: QuestionGroup_3_1326 <QuestionGroup> 3_1326
+	Name: 
+Object: QuestionnaireExtension <QuestionnaireExtension> 3_668
+	Decomposed to: 2010 Real Estate Deals (QExt1) <QL>
+Relationship: TRUE <If> 3_1164
+	Condition: TRUE
+  Role: ConditionPart <ConditionPart>  Object: <BooleanQuestion> 3_348
+  Role: Then <Then>  Object: <NumberQuestion> 3_1137
+Relationship: TRUE <If> 3_1191
+	Condition: TRUE
+  Role: ConditionPart <ConditionPart>  Object: <BooleanQuestion> 3_320
+  Role: Then <Then>  Object: <QuestionGroup> 3_1186
+Relationship: TRUE <If> 3_1331
+	Condition: TRUE
+  Role: ConditionPart <ConditionPart>  Object: <BooleanQuestion> 3_320
+  Role: Then <Then>  Object: <QuestionGroup> 3_1326
+Relationship: TRUE <If> 3_1342
+	Condition: TRUE
+  Role: ConditionPart <ConditionPart>  Object: <BooleanQuestion> 3_1069
+  Role: Then <Then>  Object: <NumberQuestion> 3_1078
+Relationship: TRUE <If> 3_1716
+	Condition: TRUE
+  Role: ConditionPart <ConditionPart>  Object: <BooleanQuestion> 3_334
+  Role: Then <Then>  Object: <BooleanQuestion> 3_348

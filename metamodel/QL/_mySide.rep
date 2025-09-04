@@ -1,0 +1,38 @@
+_mySide()
+
+@myOid = oid
+
+do .()
+{
+	if type = 'And' or type = 'Or' or type = 'Not' or type = 'Plus' or type = 'Multiplication' then
+		'none'
+	else
+		if type = 'ComparisonOperator' and :Operator = '==' then
+			'none'
+		else
+			do ~OperatorPart
+			{
+				@opOid = oid
+				do ~().()
+				{
+					if @opOid = @myOid then
+						local 'myX' write x close
+						local 'myY' write y close
+					else
+						local 'otherX' write x close
+						local 'otherY' write y close
+					endif
+				}
+			}
+		endif	
+		if @myX < @otherX num then
+			'left'
+		else
+			if @myX = @otherX num and @myY < @otherY num then
+				'left'
+			else
+				'right'
+			endif
+		endif
+	endif
+}

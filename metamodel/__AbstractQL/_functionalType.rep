@@ -1,0 +1,5 @@
+_functionalType()
+
+if type = 'BooleanQuestion' or type = 'NumberQuestion' or type = 'StringQuestion' or type = 'DateQuestion' then
+	'Question'
+endif

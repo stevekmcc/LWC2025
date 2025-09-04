@@ -1,0 +1,26 @@
+__LiveCheck()
+
+_translators()
+
+if not :Questionnaire; then
+	'ERROR: No questionnaire attached yet' newline
+else
+	$questions = ''
+
+	do :Questionnaire
+	{
+		_recurseQuestions('')
+	}
+
+	$baseQuestions = $questions
+	$oddQuestions = ''
+	$questions = ''
+	$sep = ''
+
+	_recurseQuestions('_collectOdd')
+
+	if $oddQuestions <> '' then
+		'ERROR: The following question(s) can not be found from "' :Questionnaire '": '
+		$oddQuestions newline
+	endif
+endif

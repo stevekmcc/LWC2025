@@ -1,0 +1,7 @@
+_vcsMetamodelSnapshot()
+/* Output a textual representation of metamodel and generators */
+_vcsPaths()
+internal 'document:into: * "' $vcsWorkingDir sep 'metamodel"' execute
+@htmlDir=__($vcsWorkingDir sep 'html' sep)
+_osMkdir(@htmlDir)
+_vcsHtmlSnapshot(@htmlDir)

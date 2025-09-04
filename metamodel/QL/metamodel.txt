@@ -1,0 +1,177 @@
+==========================
+Graph Type
+==========================
+QL
+	Name: String
+	Description: Text
+
+==========================
+Object Types
+==========================
+QuestionnaireExtension
+QuestionGroup
+	Name: String
+BooleanQuestion
+	Identifier: String
+	Label: Text
+	Optional?: Boolean
+NumberQuestion
+	Identifier: String
+	Label: Text
+	Type: String
+	Optional?: Boolean
+StringQuestion
+	Identifier: String
+	Label: Text
+	Optional?: Boolean
+DateQuestion
+	Identifier: String
+	Label: Text
+	Optional?: Boolean
+BooleanValue
+	Value: String
+NumberValue
+	Value: String
+StringValue
+	Value: String
+DateValue
+	Value: String
+Not
+And
+Or
+ComparisonOperator
+	Operator: String
+Plus
+Minus
+Multiplication
+Division
+
+==========================
+Relationship Types
+==========================
+If
+	Condition: String
+Term
+Assign
+
+==========================
+Role Types
+==========================
+From
+To
+ConditionPart
+Then
+OperatorPart
+ValuePart
+StorePart
+
+==========================
+Extra Types
+==========================
+__AbstractQL
+_Boolean
+_BooleanOperator
+_Data
+_Date
+_Number
+_NumberOperator
+_String
+
+==========================
+Bindings
+==========================
+Assign
+1	StorePart: NumberQuestion
+1	ValuePart: _Number
+Assign
+1	ValuePart: _Number
+1	StorePart: NumberQuestion
+If
+1	ConditionPart: _Boolean
+1	Then: BooleanQuestion, DateQuestion, NumberQuestion, QuestionGroup, StringQuestion
+If
+1	Then: BooleanQuestion, DateQuestion, NumberQuestion, QuestionGroup, StringQuestion
+1	ConditionPart: _Boolean
+Term
+1	OperatorPart: ComparisonOperator
+1	ValuePart: _Boolean, _Date, _Number, _String
+Term
+1	OperatorPart: _BooleanOperator
+1	ValuePart: _Boolean
+Term
+1	OperatorPart: _NumberOperator
+1	ValuePart: _Number
+Term
+	ValuePart: _Boolean
+	OperatorPart: _BooleanOperator
+Term
+	ValuePart: _Boolean, _Date, _Number, _String
+	OperatorPart: ComparisonOperator
+Term
+	ValuePart: _Number
+	OperatorPart: _NumberOperator
+
+==========================
+Constraints
+==========================
+ComparisonOperator may be in at most 2 Term relationships
+Division may be in at most 2 Term relationships
+Minus may be in at most 2 OperatorPart roles
+Not may be in at most 1 Term relationship
+
+==========================
+Subgraphs
+==========================
+Decompositions:
+	QuestionnaireExtension
+		QL
+
+==========================
+Generators
+==========================
+!Build
+!HTML
+Autobuild
+
+==========================
+Sub-Generators
+==========================
+_baseCSS
+_baseDatatype
+_checkAssignments
+_checkOptional
+_checkReadOnly
+_checkTypeMatch
+_evaluateAnd
+_evaluateAssociativeOperator
+_evaluateBooleanQuestion
+_evaluateBooleanValue
+_evaluateComparisonOperator
+_evaluateDateQuestion
+_evaluateDateValue
+_evaluateDivision
+_evaluateMinus
+_evaluateMultiplication
+_evaluateNonAssociativeOperator
+_evaluateNot
+_evaluateNumberQuestion
+_evaluateNumberValue
+_evaluateOr
+_evaluatePlus
+_evaluateStringQuestion
+_evaluateStringValue
+_fileName
+_frameworkJavaScript
+_HMTL_Body
+_HTML_Footer
+_HTML_Header
+_inputTypeForBooleanQuestion
+_inputTypeForDateQuestion
+_inputTypeForNumberQuestion
+_inputTypeForStringQuestion
+_mySide
+_pageContent
+_questionDefinition
+_recurseAssignments
+_recurseIfs
+

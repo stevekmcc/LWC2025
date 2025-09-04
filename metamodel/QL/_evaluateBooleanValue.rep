@@ -1,0 +1,7 @@
+_evaluateBooleanValue()
+
+if :Value = 'TRUE' then
+	'true'
+else
+	'false'
+endif

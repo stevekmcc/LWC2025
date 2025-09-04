@@ -1,0 +1,22 @@
+_evaluateNonAssociativeOperator(@operator)
+
+@numberOfOps = '0'
+@count = '1'
+
+do ~OperatorPart~().()
+{
+	@numberOfOps++%null
+}
+
+'('
+
+do ~OperatorPart~().()
+{
+	subreport '_evaluate' type run
+	if @count < @numberOfOps then
+		' ' @operator ' '
+		@count++%null
+	endif
+}
+
+')'

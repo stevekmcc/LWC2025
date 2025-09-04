@@ -1,0 +1,133 @@
+_vcsCheckIn_git()
+if $gitProjectURL and $vcsRebase then 
+@msg = _osGet('msg')
+if sep = '\' then
+'
+:update'
+else
+'
+while true; do'
+endif
+'
+git remote update || ' _osPause() 
+if sep = '\' then
+if $vcsParentComment then
+'
+set PARENTVER=
+for /f "tokens=*" %%i in (''git log --all -F "--grep=' @msg '" -1 "--format=%%H"'') do set PARENTVER=%%i || ' _osPause() '
+IF not defined PARENTVER (
+	echo Parent version not yet found: wait a second for other user and retry
+	ping 127.0.0.1 -n 2 > nul
+	goto update
+)
+'
+endif
+'
+for /f "tokens=*" %%i in (''git rev-parse @'') do set LOCALVER=%%i || ' _osPause() '
+for /f "tokens=*" %%i in (''git rev-parse @{u}'') do set REMOTEVER=%%i || ' _osPause() '
+for /f "tokens=*" %%i in (''git merge-base @ @{u}'') do set BASEVER=%%i || ' _osPause() '
+
+' _osRem('Compare local VCS with remote VCS, rebase on latest if necessary') '
+if "%LOCALVER%"=="%REMOTEVER%" (
+	echo Local .git up to date
+) else (
+	if "%LOCALVER%"=="%BASEVER%" (
+		echo Want to publish after latest remote version and based on it
+		git reset --soft origin/master || ' _osPause() '
+	) else (
+		if "%REMOTEVER%"=="%BASEVER%" (
+			echo Need to push; will happen after commit anyway
+		) else (
+			echo Diverged: solve manually
+			exit /B 2
+)	)	)
+'
+else
+if $vcsParentComment then
+'
+	unset PARENTVER
+	export PARENTVER=`git log --all -F --grep=''' $msg ''' -1 --format=%H` || ' _osPause() '
+	if [ "$PARENTVER" == "" ]; then
+		echo Parent version not yet found: wait a second for other user and retry
+		sleep 1
+	else
+		break
+	fi
+done
+'
+endif
+'
+export LOCALVER=`git rev-parse @` || ' _osPause() '
+export REMOTEVER=`git rev-parse @{u}` || ' _osPause() '
+export BASEVER=`git merge-base @ @{u}` || ' _osPause() '
+# Compare local VCS with remote VCS, rebase on latest if necessary
+if [ "$LOCALVER" == "$REMOTEVER" ]; then
+	echo Local .git up to date
+else
+	if [ "$LOCALVER" == "$BASEVER" ]; then
+		echo Want to publish after latest remote version and based on it
+		git reset --soft origin/master || ' _osPause() '
+	else
+		if [ "$REMOTEVER" == "$BASEVER" ]; then
+			echo Need to push - will happen after commit anyway
+		else
+			echo Diverged: solve manually
+			exit 2
+		fi
+	fi
+fi
+'
+endif
+endif
+'
+git add -A || ' _osPause() newline
+
+_osRem('Use a temporary file so we can filter out uninteresting commit output') 
+if sep = '\' then
+'
+git commit -F "%mepath%\vcsComment.txt" >commitOutput.tmp 2>&1
+if errorlevel 1 (
+	type commitOutput.tmp && del commitOutput.tmp && ' _osPause() '
+) else (
+	type commitOutput.tmp | find /V "' $dbBackupName '/" && del commitOutput.tmp
+)
+'
+else
+'
+git commit -F "$mepath/vcsComment.txt" >commitOutput.tmp 2>&1
+if [ $? -ne 0 ]; then
+	cat commitOutput.tmp && rm commitOutput.tmp && ' _osPause() '
+else
+	cat commitOutput.tmp | grep -v "' $dbBackupName '/" && rm commitOutput.tmp
+fi
+'
+endif
+
+if $gitProjectURL then 
+	'git push -u --force-with-lease origin master >pushOutput.tmp 2>&1' newline
+	if sep = '\' then
+		/* a (stale info) error means somebody else updated the remote after we checked its status and git committed onto its latest version. In that case we can undo this local git commit and re-run this batch file */
+		'if errorlevel 1 (set badpush=1) else (set badpush=0)' newline
+		'type pushOutput.tmp' newline
+		'find "(stale info)" pushOutput.tmp >nul' newline
+		'if errorlevel 1 (set staleinfo=1) else (set staleinfo=0)' newline
+		'del pushOutput.tmp' newline
+		'if "%badpush%"=="1" (' newline
+		'	if "%staleinfo%"=="1" (' newline
+		'		' _osPause('SOME PROBLEM IN PUSH, SEE ABOVE, PRESS CTRL+C AND SOLVE MANUALLY') newline
+		'	) else (' newline
+		'		if "%1"=="noretry" (' newline
+		'			echo Another user had pushed during our operation, retried but did not help: PRESS CTRL+C AND SOLVE MANUALLY && ' _osPause() newline
+		'		) else (' newline
+		'			echo Another user has pushed during our operation, retrying once && git reset --soft HEAD~1 && cd /d "%mepath%" && gitCheckIn.bat noretry' newline
+		'		)' newline
+		'	)' newline
+		')' newline
+	else
+		'if [ $? -ne 0 ]; then' newline
+		'	cat pushOutput.tmp && rm pushOutput.tmp && ' _osPause() newline
+		'else' newline
+		'	cat commitOutput.tmp && rm commitOutput.tmp' newline
+		'fi' newline
+	endif
+endif

@@ -1,0 +1,18 @@
+!HTML()
+
+_translators()
+
+_QLtranslators()
+
+do :Questionnaire
+{
+	@fileName = _fileName()
+}
+
+filename _defaultDirectory() @fileName '.html' write
+
+do :Questionnaire { _HTML_Header() }
+_HTML_Body()
+do :Questionnaire { _HTML_Footer() }
+
+close

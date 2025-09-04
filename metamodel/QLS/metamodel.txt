@@ -1,0 +1,119 @@
+==========================
+Graph Type
+==========================
+QLS
+	Name: String
+	Questionnaire: QL
+	Header style: Style
+	Description style: Style
+	Section header style: Style
+	Global question style: StyleWithWidgets
+
+==========================
+Object Types
+==========================
+BooleanQuestion
+	Identifier: String
+	Label: Text
+	Optional?: Boolean
+DateQuestion
+	Identifier: String
+	Label: Text
+	Optional?: Boolean
+NumberQuestion
+	Identifier: String
+	Label: Text
+	Type: String
+	Optional?: Boolean
+StringQuestion
+	Identifier: String
+	Label: Text
+	Optional?: Boolean
+SectionHeader
+	Name: String
+PageBreak
+StyleWithWidgets
+	Name: String
+	Color: String
+	Background color: String
+	Font: String
+	Font size: String
+	Font style: String
+	Widgets: WidgetSet
+
+==========================
+Relationship Types
+==========================
+SectionStart
+
+==========================
+Role Types
+==========================
+QuestionPart
+SectionStarPart
+
+==========================
+Extra Types
+==========================
+QL
+	Name: String
+	Description: Text
+__AbstractQL
+Style
+	Name: String
+	Color: String
+	Background color: String
+	Font: String
+	Font size: String
+	Font style: String
+WidgetSet
+	Name: String
+	Boolean widget: String
+	String widget: String
+	Number widget: String
+	Date widget: String
+_Boolean
+_Data
+_Date
+_Number
+_String
+
+==========================
+Bindings
+==========================
+SectionStart
+	QuestionPart: BooleanQuestion, DateQuestion, NumberQuestion, StringQuestion
+	SectionStarPart: SectionHeader
+SectionStart
+	SectionStarPart: SectionHeader
+	QuestionPart: BooleanQuestion, DateQuestion, NumberQuestion, StringQuestion
+
+==========================
+Constraints
+==========================
+
+==========================
+Subgraphs
+==========================
+
+==========================
+Generators
+==========================
+!Build
+!HTML
+Autobuild
+
+==========================
+Sub-Generators
+==========================
+_booleanWidgetForCheckbox
+_booleanWidgetForRadiobutton
+_dateWidgetForInput_field
+_extraWidgetDefs
+_HTML_Body
+_numberWidgetForInput_field
+_pageBreakOverlapper
+_stringWidgetForInput_field
+_styleDef
+__LiveCheck
+

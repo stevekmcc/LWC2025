@@ -1,0 +1,605 @@
+_frameworkJavaScript()
+
+'<script type="text/javascript">
+
+function Page(id, contents) {
+	this.id=id;
+	this.contents=contents;
+	
+	this.setHeaderStyle = function setHeaderStyle(element) {
+		if(window["headerStyle"] != undefined) window["headerStyle"].setStyle(element);
+	}
+
+	this.setDescriptionStyle = function setDescriptionStyle(element) {
+		if(window["descriptionStyle"] != undefined) window["descriptionStyle"].setStyle(element);
+	}
+	
+	this.asElement = function asElement() {
+		var page = document.createElement("div");
+		page.className="page";
+		var nameLabel = document.createElement("h1");
+		nameLabel.className="name";
+		this.setHeaderStyle(nameLabel);
+		page.style.borderColor=nameLabel.style.backgroundColor;
+		nameLabel.appendChild(document.createTextNode("' :Name '"));
+		page.appendChild(nameLabel);
+		var description = document.createElement("p");
+		description.className="description";
+		this.setDescriptionStyle(description);
+		description.appendChild(document.createTextNode("' :Description%noNewLines '"));
+		description.appendChild(document.createElement("br"));
+		var requiredLabel=document.createElement("span");
+		requiredLabel.style.color="red";
+		requiredLabel.appendChild(document.createTextNode("* = Required"));
+		description.appendChild(requiredLabel);
+		page.appendChild(description);
+		page.setAttribute("id", this.id);
+		for(var i=0;i<this.contents.length;i++)
+		{
+			var element = contents[i].asElement();
+			if(element != undefined) page.appendChild(element);
+		}
+		return page;
+	}
+}
+
+function Question(id, order, label, inputType, optional, readOnly, visibility) {
+	this.id=id;
+	this.order=order;
+	this.label=label;
+	this.inputType=inputType;
+	this.optional=optional;
+	this.readOnly=readOnly;
+	this.visibility=visibility;
+	this.widget;
+	this.styleChain;
+	
+	this.setWidget = function setWidget() {
+		if(this.styleChain != undefined) {
+			this.widget = this.styleChain.widgetFor(this.inputType, this.id);
+		}
+		if(this.widget == undefined) {
+			switch (inputType) {
+				case "Boolean":
+					this.widget = new CheckboxWidget(this.id);
+					break;
+				case "String":
+					this.widget = new StringWidget(this.id);
+						break;
+				case "Number":
+					this.widget = new NumberStringWidget(this.id);
+					break;
+				case "Date":
+					this.widget = new DateStringWidget(this.id);
+					break;
+			}
+		}
+	}
+
+	this.setStyleChain = function setStyleChain(styleArray) {
+		if(styleArray.length>0) {
+			this.styleChain = new StyleChainElement(styles[styleArray[0]]);
+			var currentChainElement=this.styleChain;
+			for(var i=1;i<styleArray.length;i++) {
+				currentChainElement.parentElement = new StyleChainElement(styles[styleArray[i]]);
+				currentChainElement = currentChainElement.parentElement;
+			}
+			this.setWidget();
+		}
+	}
+
+	this.setVariableValueFromWidget = function setVariableValueFromWidget () {
+		this.widget.setVariableValue();
+	}
+
+	this.getRawVariableValue = function getRawVariableValue() {
+		var value = window[this.id];
+		return this.widget.filterVariableValue(value);
+	}
+
+	this.isVisible = function isVisible() {
+		if(this.readOnly && this.getRawVariableValue() == undefined)
+		{
+			return false;
+		} else {
+			return this.visibility;
+		}
+	}
+
+	this.isQuestion = function isQuestion() {
+		return true;
+	}
+
+	this.getVariableValue = function getVariableValue() {
+		var value = this.getRawVariableValue();
+		if(!this.isVisible()) value = undefined;
+		return value;		
+	}
+
+	this.asElement = function asElement() {
+		var div;
+		if(this.isVisible()) {
+			div = document.createElement("div");		
+			div.className = "question";
+			if(this.styleChain != undefined) this.styleChain.setStyle(div);
+			var labelText = document.createTextNode(this.label);
+			div.appendChild(labelText);
+			if(!this.optional) {
+				var span = document.createElement("span");
+				span.style.color="red";
+				span.appendChild(document.createTextNode(" *"));
+				div.appendChild(span);
+			}
+			var inputWidget = this.widget.inputWidgetWithValue();
+			div.appendChild(inputWidget);
+		}
+		return div;
+	}
+	
+	this.setWidget();
+}
+
+function SectionHeader(headerText)
+{
+	this.headerText=headerText;
+
+	this.isQuestion = function isQuestion() {
+		return false;
+	}
+	
+	this.setSectionHeaderStyle = function setSectionHeaderStyle(element) {
+		if(window["sectionHeaderStyle"] != undefined) window["sectionHeaderStyle"].setStyle(element);
+		element.style.borderColor=element.style.color;
+	}
+
+	this.asElement = function asElement() {
+		var sectionHeader = document.createElement("h2");
+		sectionHeader.className="section";
+		this.setSectionHeaderStyle(sectionHeader);	
+		sectionHeader.appendChild(document.createTextNode(this.headerText));
+		return sectionHeader;
+	}
+}
+
+function StyleChainElement(style) {
+	this.style=style;
+	this.parentElement;
+
+	this.setStyle = function setStyle(element) {
+		if(this.parentElement != undefined) this.parentElement.setStyle(element);
+		this.style.setStyle(element);
+	}
+
+	this.widgetFor = function widgetFor(inputType, id) {
+		var widgetSet = this.style.widgetSet;
+		if(widgetSet == undefined && this.parentElement != undefined)
+			return this.parentElement.widgetFor(inputType, id);
+		if(widgetSet == undefined) return undefined;
+		switch (inputType) {
+			case "Boolean":
+				return new window[widgetSet.booleanWidget](id);
+				break;
+			case "String":
+				return new window[widgetSet.stringWidget](id);
+				break;
+			case "Number":
+				return new window[widgetSet.numberWidget](id);
+				break;
+			case "Date":
+				return new window[widgetSet.dateWidget](id);
+				break;
+		}
+	}
+}
+
+function Style(color, backgroundColor, fontFamily, fontSize, fontStyle, widgetSet) {
+	this.color=color;
+	this.backgroundColor = backgroundColor;
+	this.fontFamily=fontFamily;
+	this.fontSize=fontSize;
+	this.fontStyle=fontStyle;
+	this.widgetSet=widgetSet;
+
+	this.setStyle = function setStyle(element) {
+		if(this.color != undefined) element.style.color=this.color;
+		if(this.backgroundColor != undefined) element.style.background=this.backgroundColor;
+		if(this.fontFamily != undefined) element.style.fontFamily=this.fontFamily;
+		if(this.fontSize != undefined) element.style.fontSize=this.fontSize;
+		if(this.fontStyle != undefined) element.style.fontStyle=this.fontStyle;
+	}
+}
+
+function WidgetSet(booleanWidget, stringWidget, numberWidget, dateWidget) {
+	this.booleanWidget=booleanWidget;
+	this.stringWidget=stringWidget;
+	this.numberWidget=numberWidget;
+	this.dateWidget=dateWidget;
+}
+
+function CheckboxWidget(id) {
+	this.id = id;
+
+	this.inputWidgetWithValue = function inputWidgetWithValue() {
+		var inputWid = document.createElement("input");
+		inputWid.setAttribute("id", this.id);
+		inputWid.setAttribute("name", this.id);
+		inputWid.setAttribute("type", "checkbox");
+		inputWid.setAttribute("onclick", "checkAndCommitChange(this.id)");	
+		inputWid.onclick=function() {checkAndCommitChange(this.id);};
+		var newValue = window[id];
+		if(newValue == undefined) newValue = false;
+		inputWid.checked=newValue;
+		if(questions[this.id].readOnly) {
+			inputWid.setAttribute("readOnly","readonly");
+		}
+		return inputWid;
+	}
+
+	this.checkValue = function checkValue() {
+		return true;
+	}
+
+	
+	this.setVariableValue = function setVariableValue() {
+		window[this.id] = document.getElementById(this.id).checked;
+	}
+
+	this.filterVariableValue = function filterVariableValue(value) {
+		if(value == undefined) return false;
+		return value;
+	}
+
+	this.formatHelpText = function formatHelpText() {
+		return "";
+	}
+}
+
+function StringWidget(id) {
+	this.id = id;
+	
+	this.inputWidgetWithValue = function inputWidgetWithValue() {
+		var div = document.createElement("div");
+		div.style.marginTop="5px";
+		var inputWid = document.createElement("input");
+		inputWid.setAttribute("id", this.id);
+		inputWid.setAttribute("name", this.id);
+		inputWid.setAttribute("type", "text");
+		inputWid.setAttribute("onchange", "checkAndCommitChange(this.id)");	
+		inputWid.onchange=function() {checkAndCommitChange(this.id);};
+		var newValue = window[id];
+		if(newValue == undefined) newValue = "";
+		inputWid.value=newValue;
+		if(questions[this.id].readOnly) {
+			inputWid.setAttribute("readOnly","readonly");
+		}
+		div.appendChild(inputWid);
+		return div;
+	}
+	
+	this.checkValue = function checkValue() {
+		return true;
+	}
+
+	this.setVariableValue = function setVariableValue() {
+		window[this.id] = document.getElementById(this.id).value;
+	}
+
+	this.filterVariableValue = function filterVariableValue(value) {
+		return value;
+	}
+
+	this.formatHelpText = function formatHelpText() {
+		return "";
+	}
+}
+
+function NumberStringWidget(id) {
+	this.id = id;
+	
+	this.inputWidgetWithValue = function inputWidgetWithValue() {
+		var div = document.createElement("div");
+		div.style.marginTop="5px";
+		var inputWid = document.createElement("input");
+		inputWid.setAttribute("id", this.id);
+		inputWid.setAttribute("name", this.id);
+		inputWid.setAttribute("type", "text");
+		inputWid.setAttribute("onchange", "checkAndCommitChange(this.id)");	
+		inputWid.onchange=function() {checkAndCommitChange(this.id);};
+		var newValue = window[id];
+		if(newValue == undefined || isNaN(newValue)) newValue = "";
+		inputWid.value=newValue;
+		if(questions[this.id].readOnly) {
+			inputWid.setAttribute("readOnly","readonly");
+		}
+		div.appendChild(inputWid);
+		return div;
+	}
+	
+	this.checkValue = function checkValue() {
+		var value = getValueFromElementById(this.id);
+		if(value != undefined && value != "") {
+			if(isNaN(Number(value))) return false;
+		}
+		return true;
+	}
+
+	this.setVariableValue = function setVariableValue() {
+		var value = document.getElementById(this.id).value;
+		if(value=="") {
+			window[this.id] = undefined;
+		} else {
+			window[this.id] =  Number(value);
+		}
+	}
+
+	this.filterVariableValue = function filterVariableValue(value) {
+		if(isNaN(value)) return undefined;
+		return value;
+	}
+	
+	this.formatHelpText = function formatHelpText() {
+		return ": must be a number";
+	}
+
+}
+
+function DateStringWidget(id) {
+	this.id = id;
+	
+	this.inputWidgetWithValue = function inputWidgetWithValue() {
+		var div = document.createElement("div");
+		div.style.marginTop="5px";
+		var inputWid = document.createElement("input");
+		inputWid.setAttribute("id", this.id);
+		inputWid.setAttribute("name", this.id);
+		inputWid.setAttribute("type", "text");
+		inputWid.setAttribute("onchange", "checkAndCommitChange(this.id)");
+		inputWid.onchange=function() {checkAndCommitChange(this.id);};
+		var newValue = window[id];
+		if(newValue == undefined) {
+			newValue = "";
+		} else {
+			newValue=newValue.getDate().toString() + "/" + (newValue.getMonth()+1).toString() + "/" + newValue.getFullYear().toString();
+		}
+		inputWid.value=newValue;
+		if(questions[this.id].readOnly) {
+			inputWid.setAttribute("readOnly","readonly");
+		}
+		div.appendChild(inputWid);
+		return div;
+	}
+	
+	this.checkValue = function checkValue() {
+		var value = getValueFromElementById(this.id);
+		if(value != undefined && value != '''') {
+			var dateFormat=/^\d{1,2}[/.-]\d{1,2}[/.-]\d{4}/;
+			if(!dateFormat.test(value)) return false;
+		}
+		return true;
+	}
+
+	this.setVariableValue = function setVariableValue() {
+		var value = document.getElementById(this.id).value;
+		if(value=="") {
+			window[this.id] = undefined;
+		} else {
+			window[this.id] =  dateFromString(value);
+		}
+	}
+
+	this.filterVariableValue = function filterVariableValue(value) {
+		return value;
+	}
+
+	this.formatHelpText = function formatHelpText() {
+		return ": must be dd/mm/year, dd-mm-year or dd.mm.year";
+	}
+}
+
+'
+
+$questionOrder = '1'
+$questions = ''
+$vars = ''
+
+_recurseQuestions('_questionDefinition')
+
+'var pages = new Array();
+var questions = new Array();
+var sectionHeaders = new Array();
+var headerSyle;
+var descriptionStyle;
+var sectionHeaderStyle;
+var styles = new Array();
+
+'
+
+$questions newline
+
+'var currentPage=0;
+'
+
+$vars newline
+
+'
+var questionnaireStorage = window.localStorage;
+
+if (document.all && !window.localStorage)
+{
+	questionnaireStorage = new Array();
+	questionnaireStorage.setItem = function (key, value) { questionnaireStorage[key] = value; };
+	questionnaireStorage.getItem = function (key) { return questionnaireStorage[key]; };
+}
+
+function getVariableValue(id) {
+	return questions[id].getVariableValue();
+}
+
+function dateFromString(dateString) {
+	var realDate = new Date(dateString.replace(/(\d{2})[/\/-/.](\d{2})[/\/-/.](\d{4})/, "$1/$2/$3"));
+	return realDate;
+}
+
+function getValueFromElementById(id) {
+	var element = document.getElementById(id);
+	if(element == null) return undefined;
+	return element.value;
+}
+
+function clearValueOnElementById(id) {
+	var element = document.getElementById(id);
+	if(element == null) return undefined;
+	element.value="";
+}
+
+function setGroupVisibility(toggleArray,visibilityFlag) {
+	for(var i = 0; i < toggleArray.length; i++) {
+		questions[toggleArray[i]].visibility=visibilityFlag; 
+	}
+}
+
+function checkFormBeforeExit() {
+	var unansweredQuestions = new Array();
+	for(var key in questions) {
+		if(questions[key].isVisible() && !questions[key].optional) {
+			if(getVariableValue(key) == undefined) {
+				unansweredQuestions = unansweredQuestions.concat(questions[key].label);
+			}
+		}
+	}
+	if(unansweredQuestions.length > 0) {
+		var alertString = "The following questions must be answered first:\n";
+		for(var i=0; i<unansweredQuestions.length;i++) {
+			alertString = alertString + unansweredQuestions[i] + ''\n'';
+		}
+		alert(alertString);
+		return false;
+	}
+	return true;
+}
+
+function saveForm() {
+	for(var key in questions) {
+		questionnaireStorage.setItem(key, String(getVariableValue(key)));
+	}
+}
+
+function reportForm()
+{
+	var newPage = "<html><head><title>Results for questionnaire ' :Name '";
+	newPage += "</title></head><body>";
+	for(var key in questions) {
+		newPage += String(key) + " = ";
+		var value = questionnaireStorage.getItem(key);
+		if(value == "undefined") value="";
+		newPage += String(value);
+		newPage += "<br>";
+	}
+	newPage += "</p></body></html>";
+	document.write(newPage);
+	document.close();
+}
+
+function submitQuestionnaire() {
+	if(!checkValues || !checkFormBeforeExit()) {
+		buildPage();
+		return;
+	}
+	saveForm();
+	reportForm();
+}
+
+function submitButton() {
+	var submitButton = document.createElement("input");
+	submitButton.setAttribute("type","button");
+	submitButton.setAttribute("value","Submit form");	
+	submitButton.setAttribute("onclick","submitQuestionnaire()");
+	submitButton.onclick=function() {submitQuestionnaire();};
+	return submitButton;
+}
+
+function nextButton() {
+	var nextButton = document.createElement(''input'');
+	nextButton.setAttribute("type","button");
+	nextButton.setAttribute("value","Next");	
+	nextButton.setAttribute("onclick","nextPage()");
+	nextButton.onclick=function() {nextPage();};
+	return nextButton;
+}
+
+function prevButton() {
+	var backButton = document.createElement("input");
+	backButton.setAttribute("type","button");
+	backButton.setAttribute("value","Back");	
+	backButton.setAttribute("onclick","prevPage()");
+	backButton.onclick=function() {prevPage();};
+	return backButton;
+}
+
+function prevPage() {
+	var page = document.getElementById(pages[currentPage].id);
+	document.body.removeChild(page);
+	currentPage--;
+	buildPage();
+}
+
+function nextPage() {
+	var page = document.getElementById(pages[currentPage].id);
+	document.body.removeChild(page);
+	currentPage++;
+	buildPage();
+}
+
+function buildPage() {
+	var page = document.getElementById(pages[currentPage].id);
+	if(page != null) {
+		page.parentNode.removeChild(page);
+	}
+	page = pages[currentPage].asElement();
+	var buttons = document.createElement("div");
+	buttons.className="button";
+	if(currentPage>0) {
+		buttons.appendChild(prevButton());
+	}
+	if(currentPage<pages.length-1) {
+		buttons.appendChild(nextButton());
+	} else {
+		buttons.appendChild(submitButton());
+	}
+	page.appendChild(buttons);
+	document.body.insertBefore(page,document.getElementById("Footer"));
+}
+
+function propagateChanges() {
+'
+
+_recurseAssignments()
+
+_recurseIfs()
+
+'	buildPage();
+}
+
+function checkValues() {
+	var returnValue = true;
+	for(var i=0;i<pages[currentPage].contents.length;i++) {
+		var contentElement = pages[currentPage].contents[i];
+		if(contentElement.isQuestion()) {
+			if(!contentElement.widget.checkValue()) {
+				alert("Invalid input for question \"" + contentElement.label +"\"" +
+					pages[currentPage].contents[i].widget.formatHelpText());
+				returnValue = false;
+			}
+		}
+	}
+	return returnValue;
+}
+
+function checkAndCommitChange(id) {
+	if(!checkValues()) return false;
+	questions[id].setVariableValueFromWidget();
+	propagateChanges();
+}
+
+</script>
+'

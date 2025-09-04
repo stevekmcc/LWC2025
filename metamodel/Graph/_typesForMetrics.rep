@@ -1,0 +1,8 @@
+_typesForMetrics(@metaType)
+/* Reports the number of element types found from this model */
+local 'typeNames' write variable @metaType '_types' read close
+do @typeNames where id
+{	local 'countOfType' write math variable id '_' @metaType read evaluate close
+	'	' id ': ' @countOfType ' <' @metaType '>' newline
+	_typesForMetricsTotal(@metaType, id, @countOfType)
+}

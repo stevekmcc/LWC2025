@@ -1,0 +1,7 @@
+_evaluateComparisonOperator()
+
+if :Operator = '==' then
+	_evaluateNonAssociativeOperator(:Operator)
+else
+	_evaluateAssociativeOperator(:Operator)
+endif

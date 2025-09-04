@@ -1,0 +1,10 @@
+_checkReadOnly(@questionId, @graphOid)
+
+$readOnly = 'false'
+
+do graphs; where oid = @graphOid
+{
+	_checkAssignments(@questionId)
+}
+
+$readOnly

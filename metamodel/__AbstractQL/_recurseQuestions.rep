@@ -1,0 +1,17 @@
+_recurseQuestions(@payload)
+
+foreach .(*Question); orderby x num, y num
+{
+	@questionID = :Identifier%var
+	if not $questions =~ @questionID%wild then
+		subreport @payload run
+		if not $questions =~ @questionID%wild then
+			variable 'questions' append ' ' @questionID ' ' close
+		endif
+	endif		
+}
+
+foreach .QuestionnaireExtension; orderby x num, y num
+{
+	do decompositions { _recurseQuestions(@payload) }
+}

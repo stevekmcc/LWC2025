@@ -1,0 +1,25 @@
+_HMTL_Body()
+
+'<body>
+<script>
+
+function createPage() {
+	pages[0] = new Page("' oid '", new Array());
+'
+
+$pageBreaks = ''
+$sectionStarts = ''
+$questions = ''
+$pageCount = '0'
+$contentCount = '0'
+
+_recurseQuestions('_pageContent')
+
+'}
+
+createPage();
+propagateChanges();
+
+</script>
+</body>
+'

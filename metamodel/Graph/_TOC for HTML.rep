@@ -1,0 +1,16 @@
+report '_TOC for HTML'
+@href=__(subreport '_id and oid' run '.html')
+'<br /><table class="toc"><tr>
+<td><a href="' @href%href '" target="contentPage">'
+'<img src="images/folder.png" alt="' id%xml ' <'%xml type%xml '>'%xml '" width="17" height="16" /></a></td>' newline
+'<td style="white-space: nowrap;">' newline
+'<a href="' @href%href '" target="contentPage"><b>' id%xml '</b></a></td>' newline
+'</tr></table>' newline
+
+$branchLevel = '1'
+
+_graphsWithIconsInHTML(oid ' ', _subgraphOids())
+
+newline
+
+endreport

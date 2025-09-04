@@ -1,0 +1,6 @@
+_addGlobalStyles()
+
+'	var styleChain = new Array();
+	styleChain[0] = "' $globalStyleId '";
+	questions["' :Identifier%var '"].setStyleChain(styleChain);
+'

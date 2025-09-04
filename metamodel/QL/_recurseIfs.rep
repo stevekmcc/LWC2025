@@ -1,0 +1,38 @@
+_recurseIfs()
+
+foreach >If
+{
+	do ~Then.()
+	{
+		local 'arrayName' write 'toggleArray_' oid close
+		'	var ' @arrayName '=["'
+		if _functionalType() = 'Question' then
+			:Identifier%var
+		else
+			dowhile contents; where _functionalType() = 'Question'
+			{
+				:Identifier%var '","'
+			}
+		endif
+		'"];' newline
+	}
+	do ~ConditionPart.()
+	{
+		'	if(' 
+		
+		if :Condition;1 = 'FALSE' then
+			'!'
+		endif
+		
+		subreport '_evaluate' type run ') {' newline
+	}
+'		setGroupVisibility(' @arrayName ', true);
+	} else {
+		setGroupVisibility(' @arrayName ', false);
+	}' newline
+}
+
+foreach .QuestionnaireExtension; orderby x num, y num
+{
+	do decompositions { _recurseIfs() }
+}

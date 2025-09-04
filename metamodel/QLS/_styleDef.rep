@@ -1,0 +1,69 @@
+_styleDef(@varString)
+
+@widgetName = 'undefined'
+
+if :Widgets; then
+	do :Widgets
+	{
+		@widgetName = id%var
+		'	var ' @widgetName ' = new WidgetSet('
+		if :Boolean widget; then
+			subreport '_booleanWidgetFor' do :Boolean widget { id%var } run
+		endif
+		', '
+		if :String widget; then
+			subreport '_stringWidgetFor' do :String widget { id%var } run
+		endif
+		', '
+		if :Number widget; then
+			subreport '_numberWidgetFor' do :Number widget { id%var } run
+		endif
+		', '
+		if :Date widget; then
+			subreport '_dateWidgetFor' do :Date widget { id%var } run
+		endif
+		');' newline			
+	}
+endif
+
+@varString ' = new Style('
+
+if :Color; then
+	'"' :Color '"'
+else
+	'undefined'
+endif
+
+', '
+
+if :Background color; then
+	'"' :Background color '"'
+else
+	'undefined'
+endif
+
+', '
+
+if :Font; then
+	'"' :Font '"'
+else
+	'undefined'
+endif
+
+', '
+
+if :Font size; then
+	'"' :Font size '"'
+else
+	'undefined'
+endif
+
+', '
+
+if :Font style; then
+	'"' :Font style '"'
+else
+	'undefined'
+endif
+
+', ' @widgetName ');' newline

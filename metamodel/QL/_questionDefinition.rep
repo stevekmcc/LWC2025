@@ -1,0 +1,6 @@
+_questionDefinition()
+
+@questionID = :Identifier%var
+
+variable 'questions' append 'questions["' @questionID '"] = new Question(''' @questionID ''', ' $questionOrder++ ', ''' :Label%noNewLines ''', ''' subreport '_inputTypeFor' type run ''', ' _checkOptional() ', ' _checkReadOnly(:Identifier, oid;1) ', true);' newline close
+variable 'vars' append 'var ' @questionID ';' newline close

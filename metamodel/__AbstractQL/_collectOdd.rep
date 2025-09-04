@@ -1,0 +1,7 @@
+_collectOdd()
+
+@questionID = :Identifier%var
+if not $baseQuestions =~ @questionID%wild then
+	variable 'oddQuestions' append $sep @questionID close
+	$sep =', '
+endif

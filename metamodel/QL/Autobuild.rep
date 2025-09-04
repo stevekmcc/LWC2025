@@ -1,0 +1,15 @@
+Autobuild()
+
+_translators()
+
+!HTML()
+
+@fileName = _fileName()
+
+filename _defaultDirectory() @fileName '.bat' write
+
+'start /w ' _defaultDirectory() @fileName '.html'
+
+close
+
+external _defaultDirectory() @fileName '.bat' execute

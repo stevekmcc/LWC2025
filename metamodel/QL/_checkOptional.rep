@@ -1,0 +1,7 @@
+_checkOptional()
+
+if :Optional? = 'T' then
+	'true'
+else
+	'false'
+endif

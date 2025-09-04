@@ -1,0 +1,3 @@
+_evaluateMultiplication()
+
+_evaluateNonAssociativeOperator('*')

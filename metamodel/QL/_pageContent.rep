@@ -1,0 +1,14 @@
+_pageContent()
+
+@varName = :Identifier%var
+
+if $sectionStarts =~ oid%wild then
+	'	pages[' $pageCount '].contents[' $contentCount++ '] = sectionHeaders["' @varName '"];' newline
+endif
+
+'	pages[' $pageCount '].contents[' $contentCount++ '] = questions["' @varName '"];' newline
+
+if $pageBreaks =~ @varName%wild then
+	'	pages[' $++pageCount'] = new Page("Page' $pageCount '", new Array());' newline
+	$contentCount = '0'
+endif

@@ -1,0 +1,52 @@
+Graph_QL_sysadmin_3535261946
+Box1HouseOwning
+3_313
+QL
+Graph: Box1HouseOwning <QL> 3_313
+	Name: Box1HouseOwning
+	Description: Please answer the following questions regarding your recent real estate deals:
+
+Object: hasSoldHouse <BooleanQuestion> 3_320
+	Identifier: hasSoldHouse
+	Label: Did you sell a house
+in 2010?
+	Optional?: F
+Object: hasBoughtHouse <BooleanQuestion> 3_334
+	Identifier: hasBoughtHouse
+	Label: Did you buy a house in 2010?
+	Optional?: F
+Object: hasMaintLoan <BooleanQuestion> 3_348
+	Identifier: hasMaintLoan
+	Label: Did you enter a loan for maintenance/reconstruction?
+	Optional?: T
+Object: Minus <Minus> 3_416
+Object: sellingPrice <NumberQuestion> 3_362
+	Identifier: sellingPrice
+	Label: Price the house was sold for:
+	Type: Currency
+	Optional?: T
+Object: privateDebt <NumberQuestion> 3_380
+	Identifier: privateDebt
+	Label: Private debts for the sold house:
+	Type: Currency
+	Optional?: T
+Object: valueResidue <NumberQuestion> 3_398
+	Identifier: valueResidue
+	Label: Value residue:
+	Type: Currency
+	Optional?: T
+Object: QuestionGroup_3_418 <QuestionGroup> 3_418
+	Name: 
+Relationship: Assign <Assign> 3_436
+  Role: StorePart <StorePart>  Object: <NumberQuestion> 3_398
+  Role: ValuePart <ValuePart>  Object: <Minus> 3_416
+Relationship: TRUE <If> 3_442
+	Condition: TRUE
+  Role: ConditionPart <ConditionPart>  Object: <BooleanQuestion> 3_320
+  Role: Then <Then>  Object: <QuestionGroup> 3_418
+Relationship: Term <Term> 3_424
+  Role: OperatorPart <OperatorPart>  Object: <Minus> 3_416
+  Role: ValuePart <ValuePart>  Object: <NumberQuestion> 3_362
+Relationship: Term <Term> 3_430
+  Role: OperatorPart <OperatorPart>  Object: <Minus> 3_416
+  Role: ValuePart <ValuePart>  Object: <NumberQuestion> 3_380

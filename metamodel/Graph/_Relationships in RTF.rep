@@ -1,0 +1,48 @@
+Report '_Relationships in RTF'
+'\keep\keepn \b {' id%trunc80%rtf '} \b0 ' newline
+'{relationships:\par}'
+if ~() then  
+	/* Table begins */
+	'\keep\keepn \trowd \trgaph106' newline
+	subreport '_RTF table cell definitions' run	'\cellx2200'
+	subreport '_RTF table cell definitions' run	'\cellx4600'
+	subreport '_RTF table cell definitions' run	'\cellx7400'	
+	subreport '_RTF table cell definitions' run	'\cellx9700'
+	'\pard\plain \intbl \keep\keepn \b{In role\cell In relationship\cell With objects(s)\cell In role\cell}\b0' newline
+	'\pard \intbl {\row }' newline
+	do ~()
+	{	'\keep\keepn \trowd \trgaph106' newline
+		subreport '_RTF table cell definitions' run	'\cellx2200'
+		subreport '_RTF table cell definitions' run	'\cellx4600'
+		subreport '_RTF table cell definitions' run	'\cellx7400'	
+		subreport '_RTF table cell definitions' run	'\cellx9700'
+		'\pard \intbl ' 
+		'{' /* open first brackets here, close in each loop iteration, open again in all but last loop iteration */
+		__id_and_type_RTF() '\cell '
+		do >() { __id_and_type_RTF() '\cell ' }
+		do ~() { @lastOid = oid }
+		do ~()
+ 		{	do .()
+			{	'{\field{\*\fldinst {HYPERLINK \\l "o' oid '" }}{\fldrslt \ul{' 
+				if id then id%trunc80%rtf else '_' endif 
+				'}}}\cell '
+			}
+			__id_and_type_RTF() '\cell'
+			'}' /* opened above, close here in each loop iteration, open again in all but last loop iteration */
+			'\pard\plain {\row}' newline
+			if oid <> @lastOid then
+				'\trowd \trgaph106' newline	
+				subreport '_RTF table cell definitions' run	'\cellx4600'
+				subreport '_RTF table cell definitions' run	'\cellx7400'	
+				subreport '_RTF table cell definitions' run	'\cellx9700'
+				'\pard\plain '
+				'{' /* opened above, closed in each loop iteration, open again here in all but last loop iteration */
+				'\~\cell '
+			endif
+		}
+	}
+else 
+	'none\par' newline
+endif
+'\pard {\par}' newline
+endreport

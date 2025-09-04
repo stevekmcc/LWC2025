@@ -1,0 +1,18 @@
+Autobuild()
+
+_translators()
+
+!HTML()
+
+do :Questionnaire
+{
+	@fileName = _fileName()
+}
+
+filename _defaultDirectory() @fileName '.bat' write
+
+'start /w ' _defaultDirectory() @fileName '.html'
+
+close
+
+external _defaultDirectory() @fileName '.bat' execute

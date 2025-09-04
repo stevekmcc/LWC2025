@@ -1,0 +1,54 @@
+_extraWidgetDefs()
+
+/* Definitions of additional widgets supported by QLS - add your own here */
+
+'function RadiobuttonWidget(id) {
+	this.id = id;
+
+	this.inputWidgetWithValue = function inputWidgetWithValue() {
+		var inputWid = document.createElement("div");
+		var yesRB = document.createElement("input");
+		yesRB.setAttribute("id", this.id);
+		yesRB.setAttribute("name", this.id);
+		yesRB.setAttribute("type", "radio");
+		yesRB.setAttribute("onclick", "checkAndCommitChange(this.id)");	
+		yesRB.onclick=function() {checkAndCommitChange(this.id);};
+		var noRB = document.createElement("input");
+		noRB.setAttribute("id", this.id);
+		noRB.setAttribute("name", this.id);
+		noRB.setAttribute("type", "radio");
+		noRB.setAttribute("onclick", "checkAndCommitChange(this.id)");	
+		noRB.onclick=function() {checkAndCommitChange(this.id);};
+		var newValue = window[id];
+		if(newValue != undefined) {
+			if(newValue) {
+				yesRB.checked=true;
+			} else {
+				noRB.checked=true;
+			}
+		}
+		inputWid.appendChild(yesRB);
+		inputWid.appendChild(document.createTextNode("Yes"));
+		inputWid.appendChild(noRB);
+		inputWid.appendChild(document.createTextNode("No"));
+		return inputWid;
+	}
+	
+	this.checkValue = function checkValue() {
+		return true;
+	}
+
+	this.setVariableValue = function setVariableValue() {
+		window[id] = document.getElementById(this.id).checked;
+	}
+
+	this.filterVariableValue = function filterVariableValue(value) {
+		return value;
+	}
+
+	this.formatHelpText = function formatHelpText() {
+		return "";
+	}
+}
+
+'

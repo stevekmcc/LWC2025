@@ -1,0 +1,14 @@
+_checkTypeMatch()
+
+@count = '1'
+
+do ~OperatorPart~().()
+{
+	local 'datatype' @count++ write _baseDatatype() close
+}
+
+if @count = '2' or @datatype1 = @datatype2 then
+	'match'
+else
+	'mismatch'
+endif
