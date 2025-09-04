@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>2010 Real Estate Deals report</title>
+<link rel="stylesheet" type="text/css" href="metaedit.css" />
+
+<style type="text/css">
+
+.Item li {
+	background-color: #FFFFFF;
+	border: 2px solid #999999;
+	cursor: pointer;
+	float: left;
+	font-size: 11px;
+	list-style: none;
+	margin: 0px 2px;
+	padding: 1px 10px;
+	position: relative;
+	white-space: nowrap;
+}
+
+.Item li a { 
+	text-decoration: none; 
+}
+
+.ItemBody {
+	margin-top: 20px;
+	padding: 20px 10px;
+	border: 2px solid #999999;
+}
+
+table.content {
+	border-collapse: collapse;
+}
+
+table.content th, table.content td {
+	padding: 2px;
+	border: 2px solid #b0b0b0;
+	vertical-align: top; 
+	text-align: left;
+}
+
+td.doc {
+	white-space: pre-wrap;
+}
+
+img {
+	border: 0;
+}
+
+</style>
+
+<script type="text/javascript">
+window.onhashchange = function() {       
+	hashRE = /^#(\d+_\d+)(?:_(Properties|Relationships|Subgraphs|Dictionary)Table)?$/;
+	hashMatch = location.hash.match(hashRE);
+	if (hashMatch !== null) {
+		show(hashMatch[1]);
+		if (hashMatch[2] !== undefined) {
+			toggleItem(hashMatch[1], hashMatch[2]);
+		}
+	} else {
+		show("3_621");
+		toggleItem("3_621", "Properties");
+	}
+}
+
+</script>
+
+</head><body>
+<map name="d:\git\LWC2025\html\2010_Real_Estate_Deals_3_621.png">
+<area shape="poly" coords="525,235,525,262,522,260,522,233,528,237,528,264,525,262,525,235" href="#3_1168" alt="ConditionPart" />
+<area shape="poly" coords="525,290,525,262,522,260,522,288,528,292,528,264,525,262,525,290" href="#3_1170" alt="Then" />
+<area shape="poly" coords="125,110,125,129,122,127,122,108,128,112,128,131,125,129,125,110" href="#3_1195" alt="ConditionPart" />
+<area shape="poly" coords="125,148,125,129,122,127,122,146,128,150,128,131,125,129,125,148" href="#3_1197" alt="Then" />
+<area shape="poly" coords="185,75,215,75,212,73,182,73,188,77,218,77,215,75,185,75" href="#3_1335" alt="ConditionPart" />
+<area shape="poly" coords="246,76,215,75,212,73,243,74,249,78,218,77,215,75,246,76" href="#3_1337" alt="Then" />
+<area shape="poly" coords="325,210,325,237,322,235,322,208,328,212,328,239,325,237,325,210" href="#3_1346" alt="ConditionPart" />
+<area shape="poly" coords="325,265,325,237,322,235,322,263,328,267,328,239,325,237,325,265" href="#3_1348" alt="Then" />
+<area shape="poly" coords="525,110,525,137,522,135,522,108,528,112,528,139,525,137,525,110" href="#3_1720" alt="ConditionPart" />
+<area shape="poly" coords="525,165,525,137,522,135,522,163,528,167,528,139,525,137,525,165" href="#3_1722" alt="Then" />
+<area shape="poly" coords="485,524,485,526,483,528,481,530,479,530,371,530,369,530,367,528,365,526,365,524,365,476,365,474,367,472,369,470,371,470,479,470,481,470,483,472,485,474,485,476,485,524" href="#3_668" alt="QuestionnaireExtension" />
+<area shape="poly" coords="65,40,65,110,185,110,185,50,175,40,65,40,65,40" href="#3_320" alt="hasSoldHouse: BooleanQuestion" />
+<area shape="poly" coords="465,40,465,110,585,110,585,50,575,40,465,40,465,40" href="#3_334" alt="hasBoughtHouse: BooleanQuestion" />
+<area shape="poly" coords="465,165,465,235,585,235,585,175,575,165,465,165,465,165" href="#3_348" alt="hasMaintLoan: BooleanQuestion" />
+<area shape="poly" coords="65,165,65,235,185,235,185,175,175,165,65,165,65,165" href="#3_362" alt="sellingPrice: NumberQuestion" />
+<area shape="poly" coords="65,265,65,335,185,335,185,275,175,265,65,265,65,265" href="#3_380" alt="privateDebt: NumberQuestion" />
+<area shape="poly" coords="65,365,65,435,185,435,185,375,175,365,65,365,65,365" href="#3_398" alt="valueResidue: NumberQuestion" />
+<area shape="poly" coords="65,465,65,535,185,535,185,475,175,465,65,465,65,465" href="#3_480" alt="areYouAnIdiot: BooleanQuestion" />
+<area shape="poly" coords="65,565,65,635,185,635,185,575,175,565,65,565,65,565" href="#3_1059" alt="didYouPartyHard: BooleanQuestion" />
+<area shape="poly" coords="265,40,265,110,385,110,385,50,375,40,265,40,265,40" href="#3_628" alt="sellingDate: DateQuestion" />
+<area shape="poly" coords="265,140,265,210,385,210,385,150,375,140,265,140,265,140" href="#3_1069" alt="renovationsDone: BooleanQuestion" />
+<area shape="poly" coords="265,265,265,335,385,335,385,275,375,265,265,265,265,265" href="#3_1078" alt="renovationPrice: NumberQuestion" />
+<area shape="poly" coords="450,290,450,360,600,360,600,300,588,290,450,290,450,290" href="#3_1137" alt="mainDebt: NumberQuestion" />
+<area shape="poly" coords="246,23,400,23,400,351,246,351,246,23" href="#3_1326" alt="QuestionGroup_3_1326: QuestionGroup" />
+<area shape="poly" coords="46,148,200,148,200,653,46,653,46,148" href="#3_1186" alt="QuestionGroup_3_1186: QuestionGroup" />
+<area shape="rect" coords="0,0,603,656" />
+</map>
+<img src="2010%20Real%20Estate%20Deals_3_621.png" alt="" usemap="#d:\git\LWC2025\html\2010_Real_Estate_Deals_3_621.png" /><br />
+<div id="3_621">
+<h2>Graph documentation: 2010 Real Estate Deals</h2>
+<div class="Tab">
+	<ul class="Item">
+		<li id="3_621_Properties" style="font-style: normal;"><a href="#3_621_PropertiesTable">Properties</a></li>
+		<li id="3_621_Dictionary" style="font-style: normal;"><a href="#3_621_DictionaryTable">Dictionary</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_621_PropertiesTable">
+<noscript>
+<b>2010 Real Estate Deals</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Name</th><td class="doc">2010 Real Estate Deals&nbsp;</td></tr><tr><th>Description</th><td class="doc">Please answer the following questions regarding your recent real estate deals:&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_621_DictionaryTable">
+<noscript>
+<b>2010 Real Estate Deals</b> dictionary:<br />
+</noscript>
+<table class="content"><tr><th>Object</th><th>Type of object</th></tr>
+<tr><td>
+<a href="#3_480">areYouAnIdiot</a>&nbsp;<br /></td><td>BooleanQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_1059">didYouPartyHard</a>&nbsp;<br /></td><td>BooleanQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_334">hasBoughtHouse</a>&nbsp;<br /></td><td>BooleanQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_348">hasMaintLoan</a>&nbsp;<br /></td><td>BooleanQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_320">hasSoldHouse</a>&nbsp;<br /></td><td>BooleanQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_1069">renovationsDone</a>&nbsp;<br /></td><td>BooleanQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_628">sellingDate</a>&nbsp;<br /></td><td>DateQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_1137">mainDebt</a>&nbsp;<br /></td><td>NumberQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_380">privateDebt</a>&nbsp;<br /></td><td>NumberQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_1078">renovationPrice</a>&nbsp;<br /></td><td>NumberQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_362">sellingPrice</a>&nbsp;<br /></td><td>NumberQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_398">valueResidue</a>&nbsp;<br /></td><td>NumberQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_1186">QuestionGroup_3_1186</a>&nbsp;<br /></td><td>QuestionGroup&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_1326">QuestionGroup_3_1326</a>&nbsp;<br /></td><td>QuestionGroup&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_668">QuestionnaireExtension</a>&nbsp;<br /></td><td>QuestionnaireExtension&nbsp;</td>
+</tr>
+</table>
+<noscript><br /></noscript>
+</div></div>
+<div id="3_480"><h3>areYouAnIdiot: BooleanQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_480_Properties" style="font-style: normal;"><a href="#3_480_PropertiesTable">Properties</a></li>
+		<li id="3_480_Relationships" style="font-style: italic;"><a href="#3_480_RelationshipsTable">Relationships</a></li>
+		<li id="3_480_Subgraphs" style="font-style: italic;"><a href="#3_480_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_480_PropertiesTable">
+<noscript>
+<b>areYouAnIdiot</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">areYouAnIdiot&nbsp;</td></tr><tr><th>Label</th><td class="doc">Are you an idiot?&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_480_RelationshipsTable">
+<noscript>
+<b>areYouAnIdiot</b> relationships:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_480_SubgraphsTable">
+<noscript>
+<b>areYouAnIdiot</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_1059"><h3>didYouPartyHard: BooleanQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_1059_Properties" style="font-style: normal;"><a href="#3_1059_PropertiesTable">Properties</a></li>
+		<li id="3_1059_Relationships" style="font-style: italic;"><a href="#3_1059_RelationshipsTable">Relationships</a></li>
+		<li id="3_1059_Subgraphs" style="font-style: italic;"><a href="#3_1059_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_1059_PropertiesTable">
+<noscript>
+<b>didYouPartyHard</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">didYouPartyHard&nbsp;</td></tr><tr><th>Label</th><td class="doc">Did you party hard with the residue money?&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1059_RelationshipsTable">
+<noscript>
+<b>didYouPartyHard</b> relationships:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1059_SubgraphsTable">
+<noscript>
+<b>didYouPartyHard</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_334"><h3>hasBoughtHouse: BooleanQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_334_Properties" style="font-style: normal;"><a href="#3_334_PropertiesTable">Properties</a></li>
+		<li id="3_334_Relationships" style="font-style: normal;"><a href="#3_334_RelationshipsTable">Relationships</a></li>
+		<li id="3_334_Subgraphs" style="font-style: italic;"><a href="#3_334_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_334_PropertiesTable">
+<noscript>
+<b>hasBoughtHouse</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">hasBoughtHouse&nbsp;</td></tr><tr><th>Label</th><td class="doc">Did you buy a house in 2010?&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">F&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_334_RelationshipsTable">
+<noscript>
+<b>hasBoughtHouse</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: ConditionPart&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_348">hasMaintLoan</a>&nbsp;</td><td>: Then &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_334_SubgraphsTable">
+<noscript>
+<b>hasBoughtHouse</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_348"><h3>hasMaintLoan: BooleanQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_348_Properties" style="font-style: normal;"><a href="#3_348_PropertiesTable">Properties</a></li>
+		<li id="3_348_Relationships" style="font-style: normal;"><a href="#3_348_RelationshipsTable">Relationships</a></li>
+		<li id="3_348_Subgraphs" style="font-style: italic;"><a href="#3_348_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_348_PropertiesTable">
+<noscript>
+<b>hasMaintLoan</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">hasMaintLoan&nbsp;</td></tr><tr><th>Label</th><td class="doc">Did you enter a loan for maintenance/reconstruction?&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_348_RelationshipsTable">
+<noscript>
+<b>hasMaintLoan</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: ConditionPart&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_1137">mainDebt</a>&nbsp;</td><td>: Then &nbsp;</td></tr>
+<tr><td>: Then&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_334">hasBoughtHouse</a>&nbsp;</td><td>: ConditionPart &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_348_SubgraphsTable">
+<noscript>
+<b>hasMaintLoan</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_320"><h3>hasSoldHouse: BooleanQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_320_Properties" style="font-style: normal;"><a href="#3_320_PropertiesTable">Properties</a></li>
+		<li id="3_320_Relationships" style="font-style: normal;"><a href="#3_320_RelationshipsTable">Relationships</a></li>
+		<li id="3_320_Subgraphs" style="font-style: italic;"><a href="#3_320_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_320_PropertiesTable">
+<noscript>
+<b>hasSoldHouse</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">hasSoldHouse&nbsp;</td></tr><tr><th>Label</th><td class="doc">Did you sell a house<br />in 2010?&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">F&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_320_RelationshipsTable">
+<noscript>
+<b>hasSoldHouse</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: ConditionPart&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_1186">QuestionGroup_3_1186</a>&nbsp;</td><td>: Then &nbsp;</td></tr>
+<tr><td>: ConditionPart&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_1326">QuestionGroup_3_1326</a>&nbsp;</td><td>: Then &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_320_SubgraphsTable">
+<noscript>
+<b>hasSoldHouse</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_1069"><h3>renovationsDone: BooleanQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_1069_Properties" style="font-style: normal;"><a href="#3_1069_PropertiesTable">Properties</a></li>
+		<li id="3_1069_Relationships" style="font-style: normal;"><a href="#3_1069_RelationshipsTable">Relationships</a></li>
+		<li id="3_1069_Subgraphs" style="font-style: italic;"><a href="#3_1069_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_1069_PropertiesTable">
+<noscript>
+<b>renovationsDone</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">renovationsDone&nbsp;</td></tr><tr><th>Label</th><td class="doc">Was the house renovated while you owned it?&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1069_RelationshipsTable">
+<noscript>
+<b>renovationsDone</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: ConditionPart&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_1078">renovationPrice</a>&nbsp;</td><td>: Then &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1069_SubgraphsTable">
+<noscript>
+<b>renovationsDone</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_628"><h3>sellingDate: DateQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_628_Properties" style="font-style: normal;"><a href="#3_628_PropertiesTable">Properties</a></li>
+		<li id="3_628_Relationships" style="font-style: italic;"><a href="#3_628_RelationshipsTable">Relationships</a></li>
+		<li id="3_628_Subgraphs" style="font-style: italic;"><a href="#3_628_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_628_PropertiesTable">
+<noscript>
+<b>sellingDate</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">sellingDate&nbsp;</td></tr><tr><th>Label</th><td class="doc">Date the house was sold:&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_628_RelationshipsTable">
+<noscript>
+<b>sellingDate</b> relationships:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_628_SubgraphsTable">
+<noscript>
+<b>sellingDate</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_1137"><h3>mainDebt: NumberQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_1137_Properties" style="font-style: normal;"><a href="#3_1137_PropertiesTable">Properties</a></li>
+		<li id="3_1137_Relationships" style="font-style: normal;"><a href="#3_1137_RelationshipsTable">Relationships</a></li>
+		<li id="3_1137_Subgraphs" style="font-style: italic;"><a href="#3_1137_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_1137_PropertiesTable">
+<noscript>
+<b>mainDebt</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">mainDebt&nbsp;</td></tr><tr><th>Label</th><td class="doc">Amount of loan entered for maintenance/reconstruction:&nbsp;</td></tr><tr><th>Type</th><td class="doc">Currency&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1137_RelationshipsTable">
+<noscript>
+<b>mainDebt</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: Then&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_348">hasMaintLoan</a>&nbsp;</td><td>: ConditionPart &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1137_SubgraphsTable">
+<noscript>
+<b>mainDebt</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_380"><h3>privateDebt: NumberQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_380_Properties" style="font-style: normal;"><a href="#3_380_PropertiesTable">Properties</a></li>
+		<li id="3_380_Relationships" style="font-style: italic;"><a href="#3_380_RelationshipsTable">Relationships</a></li>
+		<li id="3_380_Subgraphs" style="font-style: italic;"><a href="#3_380_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_380_PropertiesTable">
+<noscript>
+<b>privateDebt</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">privateDebt&nbsp;</td></tr><tr><th>Label</th><td class="doc">Private debts for the sold house:&nbsp;</td></tr><tr><th>Type</th><td class="doc">Currency&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_380_RelationshipsTable">
+<noscript>
+<b>privateDebt</b> relationships:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_380_SubgraphsTable">
+<noscript>
+<b>privateDebt</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_1078"><h3>renovationPrice: NumberQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_1078_Properties" style="font-style: normal;"><a href="#3_1078_PropertiesTable">Properties</a></li>
+		<li id="3_1078_Relationships" style="font-style: normal;"><a href="#3_1078_RelationshipsTable">Relationships</a></li>
+		<li id="3_1078_Subgraphs" style="font-style: italic;"><a href="#3_1078_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_1078_PropertiesTable">
+<noscript>
+<b>renovationPrice</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">renovationPrice&nbsp;</td></tr><tr><th>Label</th><td class="doc">How much did you spent on renovations?&nbsp;</td></tr><tr><th>Type</th><td class="doc">Currency&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1078_RelationshipsTable">
+<noscript>
+<b>renovationPrice</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: Then&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_1069">renovationsDone</a>&nbsp;</td><td>: ConditionPart &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1078_SubgraphsTable">
+<noscript>
+<b>renovationPrice</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_362"><h3>sellingPrice: NumberQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_362_Properties" style="font-style: normal;"><a href="#3_362_PropertiesTable">Properties</a></li>
+		<li id="3_362_Relationships" style="font-style: italic;"><a href="#3_362_RelationshipsTable">Relationships</a></li>
+		<li id="3_362_Subgraphs" style="font-style: italic;"><a href="#3_362_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_362_PropertiesTable">
+<noscript>
+<b>sellingPrice</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">sellingPrice&nbsp;</td></tr><tr><th>Label</th><td class="doc">Price the house was sold for:&nbsp;</td></tr><tr><th>Type</th><td class="doc">Currency&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_362_RelationshipsTable">
+<noscript>
+<b>sellingPrice</b> relationships:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_362_SubgraphsTable">
+<noscript>
+<b>sellingPrice</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_398"><h3>valueResidue: NumberQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_398_Properties" style="font-style: normal;"><a href="#3_398_PropertiesTable">Properties</a></li>
+		<li id="3_398_Relationships" style="font-style: italic;"><a href="#3_398_RelationshipsTable">Relationships</a></li>
+		<li id="3_398_Subgraphs" style="font-style: italic;"><a href="#3_398_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_398_PropertiesTable">
+<noscript>
+<b>valueResidue</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">valueResidue&nbsp;</td></tr><tr><th>Label</th><td class="doc">Value residue:&nbsp;</td></tr><tr><th>Type</th><td class="doc">Currency&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_398_RelationshipsTable">
+<noscript>
+<b>valueResidue</b> relationships:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_398_SubgraphsTable">
+<noscript>
+<b>valueResidue</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_1186"><h3>QuestionGroup_3_1186: QuestionGroup&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_1186_Properties" style="font-style: normal;"><a href="#3_1186_PropertiesTable">Properties</a></li>
+		<li id="3_1186_Relationships" style="font-style: normal;"><a href="#3_1186_RelationshipsTable">Relationships</a></li>
+		<li id="3_1186_Subgraphs" style="font-style: italic;"><a href="#3_1186_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_1186_PropertiesTable">
+<noscript>
+<b>QuestionGroup_3_1186</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Name</th><td class="doc">&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1186_RelationshipsTable">
+<noscript>
+<b>QuestionGroup_3_1186</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: Then&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_320">hasSoldHouse</a>&nbsp;</td><td>: ConditionPart &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1186_SubgraphsTable">
+<noscript>
+<b>QuestionGroup_3_1186</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_1326"><h3>QuestionGroup_3_1326: QuestionGroup&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_1326_Properties" style="font-style: normal;"><a href="#3_1326_PropertiesTable">Properties</a></li>
+		<li id="3_1326_Relationships" style="font-style: normal;"><a href="#3_1326_RelationshipsTable">Relationships</a></li>
+		<li id="3_1326_Subgraphs" style="font-style: italic;"><a href="#3_1326_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_1326_PropertiesTable">
+<noscript>
+<b>QuestionGroup_3_1326</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Name</th><td class="doc">&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1326_RelationshipsTable">
+<noscript>
+<b>QuestionGroup_3_1326</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: Then&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_320">hasSoldHouse</a>&nbsp;</td><td>: ConditionPart &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_1326_SubgraphsTable">
+<noscript>
+<b>QuestionGroup_3_1326</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+<div id="3_668"><h3>: QuestionnaireExtension</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_668_Properties" style="font-style: italic;"><a href="#3_668_PropertiesTable">Properties</a></li>
+		<li id="3_668_Relationships" style="font-style: italic;"><a href="#3_668_RelationshipsTable">Relationships</a></li>
+		<li id="3_668_Subgraphs" style="font-style: normal;"><a href="#3_668_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_668_PropertiesTable">
+<noscript>
+<b>QuestionnaireExtension</b> properties:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_668_RelationshipsTable">
+<noscript>
+<b>QuestionnaireExtension</b> relationships:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_668_SubgraphsTable">
+<noscript>
+<b>QuestionnaireExtension</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td><a href="2010%20Real%20Estate%20Deals%20(QExt1)_3_473.html">2010 Real Estate Deals (QExt1)</a>
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="2010%20Real%20Estate%20Deals_3_621.html">Graph properties</a>
+</div>
+
+<script type="text/javascript">
+
+var divIds = ["3_621","3_480","3_1059","3_334","3_348","3_320","3_1069","3_628","3_1137","3_380","3_1078","3_362","3_398","3_1186","3_1326","3_668"];
+
+function setVisibility(id, visibility) {
+  var element = document.getElementById(id);
+  if(element != null) {
+    element.style.display = visibility;
+  }
+}
+
+function setTabStatus(id, status) {
+  var element = document.getElementById(id);
+  if(element != null) {
+    if (status) {
+      element.style.background = "#DDDDDD";
+    } else {
+      element.style.background = "#FFFFFF";
+    }
+  }
+}
+
+function show(id) {
+  for(var i in divIds) {
+    var divName = divIds[i];
+    if(divName == id) {
+      setVisibility(divName,"block");
+      toggleItem(divName,"Properties");
+    } else {
+      setVisibility(divName,"none");
+    }
+  }
+}   
+
+function toggleItem(id, tableName) {
+  setVisibility(id+"_PropertiesTable","none");
+  setTabStatus(id+"_Properties", false);
+  setVisibility(id+"_RelationshipsTable","none");
+  setTabStatus(id+"_Relationships", false);
+  setVisibility(id+"_SubgraphsTable","none");
+  setTabStatus(id+"_Subgraphs", false);
+  setVisibility(id+"_DictionaryTable","none");
+  setTabStatus(id+"_Dictionary", false);
+  setVisibility(id+"_"+tableName+"Table","block");
+  setTabStatus(id+"_"+tableName, true);
+}
+
+for (map of document.getElementsByTagName("map")) {
+    map.setAttribute("name", map.getAttribute("name").replace(/ /g,"_"));
+}
+for (img of document.getElementsByTagName("img")) {
+    img.setAttribute("usemap", img.getAttribute("usemap").replace(/ /g,"_"));
+}
+location.hash = "#3_621";
+
+</script>
+
+</body></html>

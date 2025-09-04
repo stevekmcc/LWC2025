@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Box1HouseOwning report</title>
+<link rel="stylesheet" type="text/css" href="metaedit.css" />
+
+<style type="text/css">
+
+.Item li {
+	background-color: #FFFFFF;
+	border: 2px solid #999999;
+	cursor: pointer;
+	float: left;
+	font-size: 11px;
+	list-style: none;
+	margin: 0px 2px;
+	padding: 1px 10px;
+	position: relative;
+	white-space: nowrap;
+}
+
+.Item li a { 
+	text-decoration: none; 
+}
+
+.ItemBody {
+	margin-top: 20px;
+	padding: 20px 10px;
+	border: 2px solid #999999;
+}
+
+table.content {
+	border-collapse: collapse;
+}
+
+table.content th, table.content td {
+	padding: 2px;
+	border: 2px solid #b0b0b0;
+	vertical-align: top; 
+	text-align: left;
+}
+
+td.doc {
+	white-space: pre-wrap;
+}
+
+img {
+	border: 0;
+}
+
+</style>
+
+<script type="text/javascript">
+window.onhashchange = function() {       
+	hashRE = /^#(\d+_\d+)(?:_(Properties|Relationships|Subgraphs|Dictionary)Table)?$/;
+	hashMatch = location.hash.match(hashRE);
+	if (hashMatch !== null) {
+		show(hashMatch[1]);
+		if (hashMatch[2] !== undefined) {
+			toggleItem(hashMatch[1], hashMatch[2]);
+		}
+	} else {
+		show("3_313");
+		toggleItem("3_313", "Properties");
+	}
+}
+
+</script>
+
+</head><body>
+<map name="d:\git\LWC2025\html\Box1HouseOwning_3_313.png">
+<area shape="poly" coords="283,141,295,133,292,131,280,139,286,143,298,135,295,133,283,141" href="#3_426" alt="OperatorPart" />
+<area shape="poly" coords="308,125,295,133,292,131,305,123,311,127,298,135,295,133,308,125" href="#3_428" alt="ValuePart" />
+<area shape="poly" coords="283,159,295,167,292,165,280,157,286,161,298,169,295,167,283,159" href="#3_432" alt="OperatorPart" />
+<area shape="poly" coords="308,175,295,167,292,165,305,173,311,177,298,169,295,167,308,175" href="#3_434" alt="ValuePart" />
+<area shape="poly" coords="270,163,270,330,267,328,267,161,273,165,273,332,270,330,270,163" href="#3_438" alt="ValuePart" />
+<area shape="poly" coords="300,330,270,330,267,328,297,328,303,332,273,332,270,330,300,330" href="#3_440" alt="StorePart" />
+<area shape="poly" coords="160,90,203,90,200,88,157,88,163,92,206,92,203,90,160,90" href="#3_448" alt="ConditionPart" />
+<area shape="poly" coords="247,90,203,90,200,88,244,88,250,92,206,92,203,90,247,90" href="#3_450" alt="Then" />
+<area shape="poly" coords="283,160,282,161,282,162,281,162,280,163,261,163,259,162,258,162,258,161,258,160,258,141,258,139,258,138,259,138,261,138,280,138,281,138,282,138,282,139,283,141,283,160" href="#3_416" alt="Minus" />
+<area shape="poly" coords="40,55,40,125,160,125,160,65,150,55,40,55,40,55" href="#3_320" alt="hasSoldHouse: BooleanQuestion" />
+<area shape="poly" coords="40,175,40,245,160,245,160,185,150,175,40,175,40,175" href="#3_334" alt="hasBoughtHouse: BooleanQuestion" />
+<area shape="poly" coords="40,295,40,365,160,365,160,305,150,295,40,295,40,295" href="#3_348" alt="hasMaintLoan: BooleanQuestion" />
+<area shape="poly" coords="300,55,300,125,420,125,420,65,410,55,300,55,300,55" href="#3_362" alt="sellingPrice: NumberQuestion" />
+<area shape="poly" coords="300,175,300,245,420,245,420,185,410,175,300,175,300,175" href="#3_380" alt="privateDebt: NumberQuestion" />
+<area shape="poly" coords="300,295,300,365,420,365,420,305,410,295,300,295,300,295" href="#3_398" alt="valueResidue: NumberQuestion" />
+<area shape="poly" coords="247,40,461,40,461,392,247,392,247,40" href="#3_418" alt="QuestionGroup_3_418: QuestionGroup" />
+<area shape="rect" coords="0,0,464,395" />
+</map>
+<img src="Box1HouseOwning_3_313.png" alt="" usemap="#d:\git\LWC2025\html\Box1HouseOwning_3_313.png" /><br />
+<div id="3_313">
+<h2>Graph documentation: Box1HouseOwning</h2>
+<div class="Tab">
+	<ul class="Item">
+		<li id="3_313_Properties" style="font-style: normal;"><a href="#3_313_PropertiesTable">Properties</a></li>
+		<li id="3_313_Dictionary" style="font-style: normal;"><a href="#3_313_DictionaryTable">Dictionary</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_313_PropertiesTable">
+<noscript>
+<b>Box1HouseOwning</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Name</th><td class="doc">Box1HouseOwning&nbsp;</td></tr><tr><th>Description</th><td class="doc">Please answer the following questions regarding your recent real estate deals:<br />&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_313_DictionaryTable">
+<noscript>
+<b>Box1HouseOwning</b> dictionary:<br />
+</noscript>
+<table class="content"><tr><th>Object</th><th>Type of object</th></tr>
+<tr><td>
+<a href="#3_334">hasBoughtHouse</a>&nbsp;<br /></td><td>BooleanQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_348">hasMaintLoan</a>&nbsp;<br /></td><td>BooleanQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_320">hasSoldHouse</a>&nbsp;<br /></td><td>BooleanQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_416">Minus</a>&nbsp;<br /></td><td>Minus&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_380">privateDebt</a>&nbsp;<br /></td><td>NumberQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_362">sellingPrice</a>&nbsp;<br /></td><td>NumberQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_398">valueResidue</a>&nbsp;<br /></td><td>NumberQuestion&nbsp;</td>
+</tr>
+<tr><td>
+<a href="#3_418">QuestionGroup_3_418</a>&nbsp;<br /></td><td>QuestionGroup&nbsp;</td>
+</tr>
+</table>
+<noscript><br /></noscript>
+</div></div>
+<div id="3_334"><h3>hasBoughtHouse: BooleanQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_334_Properties" style="font-style: normal;"><a href="#3_334_PropertiesTable">Properties</a></li>
+		<li id="3_334_Relationships" style="font-style: italic;"><a href="#3_334_RelationshipsTable">Relationships</a></li>
+		<li id="3_334_Subgraphs" style="font-style: italic;"><a href="#3_334_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_334_PropertiesTable">
+<noscript>
+<b>hasBoughtHouse</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">hasBoughtHouse&nbsp;</td></tr><tr><th>Label</th><td class="doc">Did you buy a house in 2010?&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">F&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_334_RelationshipsTable">
+<noscript>
+<b>hasBoughtHouse</b> relationships:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_334_SubgraphsTable">
+<noscript>
+<b>hasBoughtHouse</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="Box1HouseOwning_3_313.html">Graph properties</a>
+</div>
+<div id="3_348"><h3>hasMaintLoan: BooleanQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_348_Properties" style="font-style: normal;"><a href="#3_348_PropertiesTable">Properties</a></li>
+		<li id="3_348_Relationships" style="font-style: italic;"><a href="#3_348_RelationshipsTable">Relationships</a></li>
+		<li id="3_348_Subgraphs" style="font-style: italic;"><a href="#3_348_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_348_PropertiesTable">
+<noscript>
+<b>hasMaintLoan</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">hasMaintLoan&nbsp;</td></tr><tr><th>Label</th><td class="doc">Did you enter a loan for maintenance/reconstruction?&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_348_RelationshipsTable">
+<noscript>
+<b>hasMaintLoan</b> relationships:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_348_SubgraphsTable">
+<noscript>
+<b>hasMaintLoan</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="Box1HouseOwning_3_313.html">Graph properties</a>
+</div>
+<div id="3_320"><h3>hasSoldHouse: BooleanQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_320_Properties" style="font-style: normal;"><a href="#3_320_PropertiesTable">Properties</a></li>
+		<li id="3_320_Relationships" style="font-style: normal;"><a href="#3_320_RelationshipsTable">Relationships</a></li>
+		<li id="3_320_Subgraphs" style="font-style: italic;"><a href="#3_320_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_320_PropertiesTable">
+<noscript>
+<b>hasSoldHouse</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">hasSoldHouse&nbsp;</td></tr><tr><th>Label</th><td class="doc">Did you sell a house<br />in 2010?&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">F&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_320_RelationshipsTable">
+<noscript>
+<b>hasSoldHouse</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: ConditionPart&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_418">QuestionGroup_3_418</a>&nbsp;</td><td>: Then &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_320_SubgraphsTable">
+<noscript>
+<b>hasSoldHouse</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="Box1HouseOwning_3_313.html">Graph properties</a>
+</div>
+<div id="3_416"><h3>: Minus</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_416_Properties" style="font-style: italic;"><a href="#3_416_PropertiesTable">Properties</a></li>
+		<li id="3_416_Relationships" style="font-style: normal;"><a href="#3_416_RelationshipsTable">Relationships</a></li>
+		<li id="3_416_Subgraphs" style="font-style: italic;"><a href="#3_416_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_416_PropertiesTable">
+<noscript>
+<b>Minus</b> properties:<br />
+</noscript>
+none<br />
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_416_RelationshipsTable">
+<noscript>
+<b>Minus</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: OperatorPart&nbsp;</td><td>: Term&nbsp;</td><td><a href="#3_362">sellingPrice</a>&nbsp;</td><td>: ValuePart &nbsp;</td></tr>
+<tr><td>: OperatorPart&nbsp;</td><td>: Term&nbsp;</td><td><a href="#3_380">privateDebt</a>&nbsp;</td><td>: ValuePart &nbsp;</td></tr>
+<tr><td>: ValuePart&nbsp;</td><td>: Assign&nbsp;</td><td><a href="#3_398">valueResidue</a>&nbsp;</td><td>: StorePart &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_416_SubgraphsTable">
+<noscript>
+<b>Minus</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="Box1HouseOwning_3_313.html">Graph properties</a>
+</div>
+<div id="3_380"><h3>privateDebt: NumberQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_380_Properties" style="font-style: normal;"><a href="#3_380_PropertiesTable">Properties</a></li>
+		<li id="3_380_Relationships" style="font-style: normal;"><a href="#3_380_RelationshipsTable">Relationships</a></li>
+		<li id="3_380_Subgraphs" style="font-style: italic;"><a href="#3_380_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_380_PropertiesTable">
+<noscript>
+<b>privateDebt</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">privateDebt&nbsp;</td></tr><tr><th>Label</th><td class="doc">Private debts for the sold house:&nbsp;</td></tr><tr><th>Type</th><td class="doc">Currency&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_380_RelationshipsTable">
+<noscript>
+<b>privateDebt</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: ValuePart&nbsp;</td><td>: Term&nbsp;</td><td><a href="#3_416">Minus</a>&nbsp;</td><td>: OperatorPart &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_380_SubgraphsTable">
+<noscript>
+<b>privateDebt</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="Box1HouseOwning_3_313.html">Graph properties</a>
+</div>
+<div id="3_362"><h3>sellingPrice: NumberQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_362_Properties" style="font-style: normal;"><a href="#3_362_PropertiesTable">Properties</a></li>
+		<li id="3_362_Relationships" style="font-style: normal;"><a href="#3_362_RelationshipsTable">Relationships</a></li>
+		<li id="3_362_Subgraphs" style="font-style: italic;"><a href="#3_362_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_362_PropertiesTable">
+<noscript>
+<b>sellingPrice</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">sellingPrice&nbsp;</td></tr><tr><th>Label</th><td class="doc">Price the house was sold for:&nbsp;</td></tr><tr><th>Type</th><td class="doc">Currency&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_362_RelationshipsTable">
+<noscript>
+<b>sellingPrice</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: ValuePart&nbsp;</td><td>: Term&nbsp;</td><td><a href="#3_416">Minus</a>&nbsp;</td><td>: OperatorPart &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_362_SubgraphsTable">
+<noscript>
+<b>sellingPrice</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="Box1HouseOwning_3_313.html">Graph properties</a>
+</div>
+<div id="3_398"><h3>valueResidue: NumberQuestion&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_398_Properties" style="font-style: normal;"><a href="#3_398_PropertiesTable">Properties</a></li>
+		<li id="3_398_Relationships" style="font-style: normal;"><a href="#3_398_RelationshipsTable">Relationships</a></li>
+		<li id="3_398_Subgraphs" style="font-style: italic;"><a href="#3_398_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_398_PropertiesTable">
+<noscript>
+<b>valueResidue</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Identifier</th><td class="doc">valueResidue&nbsp;</td></tr><tr><th>Label</th><td class="doc">Value residue:&nbsp;</td></tr><tr><th>Type</th><td class="doc">Currency&nbsp;</td></tr><tr><th>Optional?</th><td class="doc">T&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_398_RelationshipsTable">
+<noscript>
+<b>valueResidue</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: StorePart&nbsp;</td><td>: Assign&nbsp;</td><td><a href="#3_416">Minus</a>&nbsp;</td><td>: ValuePart &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_398_SubgraphsTable">
+<noscript>
+<b>valueResidue</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="Box1HouseOwning_3_313.html">Graph properties</a>
+</div>
+<div id="3_418"><h3>QuestionGroup_3_418: QuestionGroup&#xA;</h3><div class="Tab">
+	<ul class="Item">
+		<li id="3_418_Properties" style="font-style: normal;"><a href="#3_418_PropertiesTable">Properties</a></li>
+		<li id="3_418_Relationships" style="font-style: normal;"><a href="#3_418_RelationshipsTable">Relationships</a></li>
+		<li id="3_418_Subgraphs" style="font-style: italic;"><a href="#3_418_SubgraphsTable">Subgraphs</a></li>
+	</ul>
+</div>
+<div class="ItemBody" id="3_418_PropertiesTable">
+<noscript>
+<b>QuestionGroup_3_418</b> properties:<br />
+</noscript>
+<table class="content"><tr><th>Name</th><td class="doc">&nbsp;</td></tr></table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_418_RelationshipsTable">
+<noscript>
+<b>QuestionGroup_3_418</b> relationships:<br />
+</noscript>
+<table class="content"><tr><th>In role</th><th>In relationship</th><th>With object(s)</th><th>In role</th></tr>
+<tr><td>: Then&nbsp;</td><td>TRUE: If&#xA;&nbsp;</td><td><a href="#3_320">hasSoldHouse</a>&nbsp;</td><td>: ConditionPart &nbsp;</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<div class="ItemBody" id="3_418_SubgraphsTable">
+<noscript>
+<b>QuestionGroup_3_418</b> subgraphs:<br />
+</noscript>
+<table class="content"><tr><th>Subgraph type</th><th>Graph's name</th></tr>
+<tr><th>Decomposition</th><td>none
+</td></tr>
+<tr><th>Explosions</th><td>none</td></tr>
+</table>
+<noscript><br /></noscript>
+</div>
+<br /><a href="Box1HouseOwning_3_313.html">Graph properties</a>
+</div>
+
+<script type="text/javascript">
+
+var divIds = ["3_313","3_334","3_348","3_320","3_416","3_380","3_362","3_398","3_418"];
+
+function setVisibility(id, visibility) {
+  var element = document.getElementById(id);
+  if(element != null) {
+    element.style.display = visibility;
+  }
+}
+
+function setTabStatus(id, status) {
+  var element = document.getElementById(id);
+  if(element != null) {
+    if (status) {
+      element.style.background = "#DDDDDD";
+    } else {
+      element.style.background = "#FFFFFF";
+    }
+  }
+}
+
+function show(id) {
+  for(var i in divIds) {
+    var divName = divIds[i];
+    if(divName == id) {
+      setVisibility(divName,"block");
+      toggleItem(divName,"Properties");
+    } else {
+      setVisibility(divName,"none");
+    }
+  }
+}   
+
+function toggleItem(id, tableName) {
+  setVisibility(id+"_PropertiesTable","none");
+  setTabStatus(id+"_Properties", false);
+  setVisibility(id+"_RelationshipsTable","none");
+  setTabStatus(id+"_Relationships", false);
+  setVisibility(id+"_SubgraphsTable","none");
+  setTabStatus(id+"_Subgraphs", false);
+  setVisibility(id+"_DictionaryTable","none");
+  setTabStatus(id+"_Dictionary", false);
+  setVisibility(id+"_"+tableName+"Table","block");
+  setTabStatus(id+"_"+tableName, true);
+}
+
+for (map of document.getElementsByTagName("map")) {
+    map.setAttribute("name", map.getAttribute("name").replace(/ /g,"_"));
+}
+for (img of document.getElementsByTagName("img")) {
+    img.setAttribute("usemap", img.getAttribute("usemap").replace(/ /g,"_"));
+}
+location.hash = "#3_313";
+
+</script>
+
+</body></html>

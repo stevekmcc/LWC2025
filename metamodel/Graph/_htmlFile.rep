@@ -3,10 +3,10 @@ filename @dir subreport '_id and oid' run '.html' encoding 'UTF-8' write
 	'<!DOCTYPE html>' newline
 	'<html><head>' newline
 	'<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'
-	subreport '__stylesheet in HTML' run
+	subreport '__stylesheet in HTML' arguments @dir run
 	subreport '_styles and scripts for HTML' run
 	'</head><body>' newline
-	subreport '_Dictionary in HTML' run
+	subreport '_Dictionary in HTML' arguments @dir run
 	subreport '_Object properties in HTML' run newline
 	subreport '_javaScript for HTML' run newline
 	'</body></html>'

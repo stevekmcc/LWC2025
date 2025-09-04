@@ -1,4 +1,4 @@
-Report '_Dictionary in HTML'
+_Dictionary\ in\ HTML(@dir)
 variable 'mainObjects' write
 	' ' 
 	foreach .() { oid ' ' }
@@ -6,7 +6,7 @@ close
 variable 'extraObjects' write ' ' close
 
 @pngFile = __(subreport '_id and oid' run '.png')
-@pngPath = __(subreport '_default directory' run @pngFile)
+@pngPath = __(@dir @pngFile)
 filename @pngPath print
 @mapId = __(to '\  _' translate @pngPath endto)
 '<img src="' @pngFile%href '" alt="" usemap="#' @mapId%xml '" /><br />' newline
@@ -65,4 +65,3 @@ foreach .()
 '</table>' newline
 '<noscript><br /></noscript>' newline
 '</div></div>' newline
-endreport

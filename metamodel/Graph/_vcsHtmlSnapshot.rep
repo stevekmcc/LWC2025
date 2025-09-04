@@ -1,9 +1,6 @@
 _vcsHtmlSnapshot(@dir)
 _translators()
-if not @dir then 
-	@dir = __(subreport '_default directory' run) 
-endif
-filename @dir 'index.html' encoding 'UTF-8' write
+filename subreport '_default directory' run 'index.html' encoding 'UTF-8' write
 	'<!DOCTYPE html>' newline
 	'<html><head>' newline
 	'<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'
