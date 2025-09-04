@@ -3,7 +3,7 @@ _vcsMetamodelSnapshot()
 _vcsPaths()
 internal 'document:into: * "' $vcsWorkingDir sep 'metamodel"' execute
 
-@htmlDir=__($vcsWorkingDir sep 'html' sep)
+@htmlDir=__($vcsWorkingDir sep 'docs' sep)
 @ignore =__(external _osMkdir(@htmlDir) read)
 
 _vcsHtmlSnapshot(@htmlDir)
