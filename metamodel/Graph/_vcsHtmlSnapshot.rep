@@ -1,10 +1,11 @@
 _vcsHtmlSnapshot(@dir)
 _translators()
-filename subreport '_default directory' run 'index.html' encoding 'UTF-8' write
+$single_graph='true' /* We output each graph individually, not building a subgraph hierarchy */
+filename @dir 'index.html' encoding 'UTF-8' write
 	'<!DOCTYPE html>' newline
 	'<html><head>' newline
 	'<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'
-	subreport '__stylesheet in HTML' run
+	subreport '__stylesheet in HTML' arguments @dir run
 	subreport '_styles and scripts for HTML hierarchy' run
 	'</head><body>' newline
 	'<div class="container">' newline

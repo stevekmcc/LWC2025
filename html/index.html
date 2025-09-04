@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title> report</title>
+<link rel="stylesheet" type="text/css" href="metaedit.css" />
+<style type="text/css">
+
+td.empty {
+	width: 18px;
+	min-width: 18px;
+	height: 16px;
+}
+
+table.toc {
+	border-collapse: collapse;
+}
+
+div.container {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -0.5rem;
+}
+
+div.toc {
+	resize: horizontal;
+	overflow: auto;
+	width: 20%;
+	margin: 0.5rem;
+	flex-grow: 0;
+}
+
+div.content {
+	height: 100vh;
+	flex-grow: 4;
+	display: flex;
+}
+
+iframe {
+	border: 0;
+	height: 100%;
+	flex: 1 1 auto;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function closeBranches(numberOfBranches) {
+	for (i=0;i<=numberOfBranches;i++) {
+		var element = document.getElementById('branch'+i);
+		if(element != null) {
+			element.style.display = 'none';
+		}
+	}
+}
+
+function toggleBranchVisibility(numberOfBranch) {
+	var element = document.getElementById('branch'+numberOfBranch);
+	var icon = document.getElementById('branchIcon'+numberOfBranch);	
+	if(element != null && icon != null) {
+		if(element.style.display == 'block') {
+			element.style.display = 'none';
+			icon.src = 'images/closed_subfolder.png';
+		}
+		else {
+			element.style.display = 'block';
+			icon.src = 'images/open_subfolder.png';
+		}
+	}
+}
+
+</script></head><body>
+<div class="container">
+ <div class="toc">
+<h1>QL</h1>
+<ul>
+<li><a href="2010%20Real%20Estate%20Deals%20(QExt1)_3_473.html" target="contentPage"><b>2010 Real Estate Deals (QExt1)</b></a>: QL</li>
+<li><a href="2010%20Real%20Estate%20Deals_3_621.html" target="contentPage"><b>2010 Real Estate Deals</b></a>: QL</li>
+<li><a href="Box1HouseOwning_3_313.html" target="contentPage"><b>Box1HouseOwning</b></a>: QL</li>
+<li><a href="Layout%201%20-%20Layout%20for%202010%20Real%20Estate%20Deals_3_756.html" target="contentPage"><b>Layout 1 - Layout for 2010 Real Estate Deals</b></a>: QLS</li>
+</ul>
+ </div> <!-- toc -->
+ <div class="content">
+  <iframe name="contentPage" src="__.html"></iframe>
+ </div> <!-- content -->
+</div> <!-- container -->
+</body></html>
