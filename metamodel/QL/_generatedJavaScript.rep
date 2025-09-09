@@ -1,0 +1,46 @@
+_generatedJavaScript()
+
+$questionOrder = '1'
+$questions = ''
+$vars = ''
+
+_recurseQuestions('_questionDefinition')
+
+'var pages = new Array();
+var questions = new Array();
+var sectionHeaders = new Array();
+var headerSyle;
+var descriptionStyle;
+var sectionHeaderStyle;
+var styles = new Array();
+
+'
+
+$questions newline
+
+'var currentPage=0;
+'
+
+$vars newline
+
+'
+var questionnaireStorage = window.localStorage;
+
+if (document.all && !window.localStorage)
+{
+	questionnaireStorage = new Array();
+	questionnaireStorage.setItem = function (key, value) { questionnaireStorage[key] = value; };
+	questionnaireStorage.getItem = function (key) { return questionnaireStorage[key]; };
+}
+
+function propagateChanges() {
+'
+
+_recurseAssignments()
+
+_recurseIfs()
+
+'	buildPage();
+}
+
+'

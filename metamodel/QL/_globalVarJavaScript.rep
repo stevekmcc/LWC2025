@@ -1,0 +1,5 @@
+_globalVarJavaScript()
+'
+var questionnaireName = "' :Name%xml '";
+var questionnaireDescription = "' :Description%noNewLines%xml '";
+'

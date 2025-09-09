@@ -6,7 +6,12 @@ _HTML_Header()
 '
 
 _baseCSS()
+'<script type="text/javascript">'
+_globalVarJavaScript()
 _frameworkJavaScript()
+_generatedJavaScript()
+'</script>'
+
 
 '</head>
 '

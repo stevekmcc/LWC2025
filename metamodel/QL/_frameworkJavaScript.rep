@@ -1,7 +1,5 @@
 _frameworkJavaScript()
-
-'<script type="text/javascript">
-
+'
 function Page(id, contents) {
 	this.id=id;
 	this.contents=contents;
@@ -21,12 +19,12 @@ function Page(id, contents) {
 		nameLabel.className="name";
 		this.setHeaderStyle(nameLabel);
 		page.style.borderColor=nameLabel.style.backgroundColor;
-		nameLabel.appendChild(document.createTextNode("' :Name '"));
+		nameLabel.appendChild(document.createTextNode(questionnaireName));
 		page.appendChild(nameLabel);
 		var description = document.createElement("p");
 		description.className="description";
 		this.setDescriptionStyle(description);
-		description.appendChild(document.createTextNode("' :Description%noNewLines '"));
+		description.appendChild(document.createTextNode(questionnaireDescription));
 		description.appendChild(document.createElement("br"));
 		var requiredLabel=document.createElement("span");
 		requiredLabel.style.color="red";
@@ -371,7 +369,7 @@ function DateStringWidget(id) {
 	
 	this.checkValue = function checkValue() {
 		var value = getValueFromElementById(this.id);
-		if(value != undefined && value != '''') {
+		if(value != undefined && value != "") {
 			var dateFormat=/^\d{1,2}[/.-]\d{1,2}[/.-]\d{4}/;
 			if(!dateFormat.test(value)) return false;
 		}
@@ -394,41 +392,6 @@ function DateStringWidget(id) {
 	this.formatHelpText = function formatHelpText() {
 		return ": must be dd/mm/year, dd-mm-year or dd.mm.year";
 	}
-}
-
-'
-
-$questionOrder = '1'
-$questions = ''
-$vars = ''
-
-_recurseQuestions('_questionDefinition')
-
-'var pages = new Array();
-var questions = new Array();
-var sectionHeaders = new Array();
-var headerSyle;
-var descriptionStyle;
-var sectionHeaderStyle;
-var styles = new Array();
-
-'
-
-$questions newline
-
-'var currentPage=0;
-'
-
-$vars newline
-
-'
-var questionnaireStorage = window.localStorage;
-
-if (document.all && !window.localStorage)
-{
-	questionnaireStorage = new Array();
-	questionnaireStorage.setItem = function (key, value) { questionnaireStorage[key] = value; };
-	questionnaireStorage.getItem = function (key) { return questionnaireStorage[key]; };
 }
 
 function getVariableValue(id) {
@@ -470,7 +433,7 @@ function checkFormBeforeExit() {
 	if(unansweredQuestions.length > 0) {
 		var alertString = "The following questions must be answered first:\n";
 		for(var i=0; i<unansweredQuestions.length;i++) {
-			alertString = alertString + unansweredQuestions[i] + ''\n'';
+			alertString = alertString + unansweredQuestions[i] + "\n";
 		}
 		alert(alertString);
 		return false;
@@ -486,7 +449,7 @@ function saveForm() {
 
 function reportForm()
 {
-	var newPage = "<html><head><title>Results for questionnaire ' :Name '";
+	var newPage = "<html><head><title>Results for questionnaire " + questionnaireName;
 	newPage += "</title></head><body>";
 	for(var key in questions) {
 		newPage += String(key) + " = ";
@@ -519,7 +482,7 @@ function submitButton() {
 }
 
 function nextButton() {
-	var nextButton = document.createElement(''input'');
+	var nextButton = document.createElement("input");
 	nextButton.setAttribute("type","button");
 	nextButton.setAttribute("value","Next");	
 	nextButton.setAttribute("onclick","nextPage()");
@@ -570,16 +533,6 @@ function buildPage() {
 	document.body.insertBefore(page,document.getElementById("Footer"));
 }
 
-function propagateChanges() {
-'
-
-_recurseAssignments()
-
-_recurseIfs()
-
-'	buildPage();
-}
-
 function checkValues() {
 	var returnValue = true;
 	for(var i=0;i<pages[currentPage].contents.length;i++) {
@@ -601,5 +554,4 @@ function checkAndCommitChange(id) {
 	propagateChanges();
 }
 
-</script>
 '

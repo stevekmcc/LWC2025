@@ -9,7 +9,7 @@ _QLtranslators()
 filename _defaultDirectory() @fileName '.html' write
 
 _HTML_Header()
-_HMTL_Body()
+_HTML_Body()
 _HTML_Footer()
 
 close

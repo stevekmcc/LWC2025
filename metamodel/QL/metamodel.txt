@@ -162,7 +162,9 @@ _evaluateStringQuestion
 _evaluateStringValue
 _fileName
 _frameworkJavaScript
-_HMTL_Body
+_generatedJavaScript
+_globalVarJavaScript
+_HTML_Body
 _HTML_Footer
 _HTML_Header
 _inputTypeForBooleanQuestion
