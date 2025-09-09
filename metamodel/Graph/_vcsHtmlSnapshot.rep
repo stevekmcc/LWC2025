@@ -23,7 +23,13 @@ filename @dir 'index.html' encoding 'UTF-8' write
 	}
 	' </div> <!-- toc -->' newline
 	' <div class="content">' newline
-	'  <iframe name="contentPage" src="' subreport '_id and oid' run '.html"></iframe>' newline
+	'  <iframe name="contentPage" src="' 
+		if metatype='Graph' then
+			subreport '_id and oid' run '.html'
+		else
+			'about:blank' /* when called by MetaEdit+ e.g. in versioning */
+		endif
+		'"></iframe>' newline
 	' </div> <!-- content -->' newline
 	'</div> <!-- container -->' newline
 	'</body></html>'
