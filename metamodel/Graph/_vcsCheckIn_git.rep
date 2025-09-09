@@ -9,7 +9,7 @@ else
 while true; do'
 endif
 '
-git remote update || ' _osPause() 
+git git update || ' _osPause() 
 if sep = '\' then
 if $vcsParentComment then
 '
