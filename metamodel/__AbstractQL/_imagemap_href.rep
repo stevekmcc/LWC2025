@@ -1,0 +1,12 @@
+Report '_imagemap_href'
+/* Clicking QuestionnaireExtension takes us straight to the subgraph */
+if metatype = 'Object' and type = 'QuestionnaireExtension' then 
+	do decompositions
+	{	'href="' subreport '_id and oid' run '.html" '	}
+	'alt="' id%xml 
+	if id <> type then ': ' type%xml endif
+	'"'
+else
+	subreport '_imagemap_href' runSuper
+endif
+endreport

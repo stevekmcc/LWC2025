@@ -43,6 +43,7 @@ _collectOdd
 _defaultDirectory
 _Dictionary in HTML
 _functionalType
+_imagemap_href
 _QLtranslators
 _recurseQuestions
 
