@@ -1,0 +1,23 @@
+_Dictionary\ in\ HTML(@dir)
+/* pass the @dir setting to be used for the questionaire generation too */
+variable 'defaultDirectory' append close
+@oldDefaultDirectory = $defaultDirectory
+$defaultDirectory = @dir
+
+/* At the top of a top-level graph, add link to questionnaire, generate it */
+if not __hideHtml() then
+	'<p><b><a href="'
+	if type='QLS' then
+		do :Questionnaire { _fileName() }
+	else 
+		_fileName()
+	endif
+	'.html" target="Questionnaire">Test the Questionnaire!</a></b> (shift-click to open in new window)</p>' newline
+endif
+
+!HTML()
+
+$defaultDirectory = @oldDefaultDirectory
+
+/* Continue with the rest of the normal Graph export */
+subreport '_Dictionary in HTML' arguments @dir runSuper

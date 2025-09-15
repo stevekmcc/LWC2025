@@ -1,0 +1,3 @@
+__hideHtml()
+/* Don't want this to show up in _vcsHtmlSnapshot left tree, nor for it to offer a 'Test the Questionnaire link' */
+if id=~'*(QExt*)' then 'T' endif

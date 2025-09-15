@@ -41,6 +41,7 @@ Sub-Generators
 _addGlobalStyles
 _collectOdd
 _defaultDirectory
+_Dictionary in HTML
 _functionalType
 _QLtranslators
 _recurseQuestions

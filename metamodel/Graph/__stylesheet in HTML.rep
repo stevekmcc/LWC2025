@@ -6,7 +6,8 @@ if not $writtenStylesheet then
 	close 
 	$writtenStylesheet='T'
 endif
+@qlsDir=__(if @dir=~__('*'sep 'QLS' sep) then '..' sep endif)
 '
 <title>' id%xml ' report</title>
-<link rel="stylesheet" type="text/css" href="metaedit.css" />
+<link rel="stylesheet" type="text/css" href="' @qlsDir 'metaedit.css" />
 '

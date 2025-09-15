@@ -176,4 +176,5 @@ _pageContent
 _questionDefinition
 _recurseAssignments
 _recurseIfs
+__hideHtml
 

@@ -10,14 +10,15 @@ filename @dir 'index.html' encoding 'UTF-8' write
 	'</head><body>' newline
 	'<div class="container">' newline
 	' <div class="toc">' newline
-	@curProj = ''
 	do graphs orderby project unique project
 	{	'<h1>' project '</h1>' newline
 		'<ul>' newline
 		do graphs where project = project;1 orderby id ': ' type
-		{	_htmlFile(@dir)
-			@href=__(subreport '_id and oid' run '.html')
-			'<li><a href="' @href%href '" target="contentPage"><b>' id%xml '</b></a>: ' type%xml '</li>' newline
+		{	_htmlFile(@dir if type='QLS' then type sep endif)
+			@href=__(if type='QLS' then type '/' endif subreport '_id and oid' run '.html')
+			if not __hideHtml() then
+				'<li><a href="' @href%href '" target="contentPage"><b>' id%xml '</b></a>: ' type%xml '</li>' newline
+			endif
 		}
 		'</ul>' newline
 	}

@@ -1,0 +1,52 @@
+.base, .name, .description, .section, .question, .button {
+	color: black;
+	font-family: "Verdana", Helvetica, sans-serif;
+	font-size: small;
+	margin: 0px 10px 0px;
+	padding: 10px 15px 20px
+}
+
+.page {
+	border: thin solid #0000f0;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+}
+
+.name {
+ 	color: white;
+	background: #0000f0;
+	font-size: large;
+	text-align:center;
+	margin: 0px;
+	padding-bottom: 10px;
+}
+
+.description {
+}
+
+.section {
+	font-style: bold;
+	padding-top: 0px;
+	padding-bottom: 5px;
+	border-bottom: thin solid black;
+}
+
+.question {
+	margin-bottom: 5px;
+}
+
+.question:nth-of-type(even) {
+	background: white;
+}
+
+.question:nth-of-type(odd) {
+	background: #f0ffff;
+}
+
+.button {
+	display:block;
+	text-align:center;
+	padding-top: 20px;
+}

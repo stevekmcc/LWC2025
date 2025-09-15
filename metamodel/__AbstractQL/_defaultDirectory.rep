@@ -1,3 +1,7 @@
 _defaultDirectory()
-
-'reports' sep
+variable 'defaultDirectory' append close
+if $defaultDirectory then
+	$defaultDirectory
+else
+	'reports' sep
+endif
